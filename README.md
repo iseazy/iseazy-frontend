@@ -25,8 +25,10 @@ Se trata de implementar un juego clásico; el memory. La mecánica es bastante s
 Al empezar la partida tienes una parrilla de tarjetas vistas del reverso. Las tarjetas contienen una serie de parejas de
 imágenes que se colocan de forma aleatoria en cada tirada. Puedes descubrir dos tarjetas a la vez:
 
-Si las tarjetas son iguales se quedan descubiertas. Si las tarjetas son distintas se vuelven a poner del reverso para
-que sigas buscando parejas. El juego termina cuando hayas revelado todas las parejas.
+* Si las tarjetas son iguales se quedan descubiertas.
+* Si las tarjetas son distintas se vuelven a poner del reverso para
+que sigas buscando parejas. 
+* El juego termina cuando hayas revelado todas las parejas.
 
 ## Pasos para preparar el entorno para realizar la prueba
 
