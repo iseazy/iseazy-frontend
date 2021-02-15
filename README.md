@@ -15,7 +15,7 @@ día :)
 Te sugerimos que empieces implementando la mecánica básica del ejercicio y posteriormente añadas los detalles y mejoras
 que consideres, de esta manera tendrás algo revisable aunque se te acabe el tiempo.
 
-La duración de la prueba es de dos días. No se trata de hacer una prueba de velocidad, por lo que si te surge algún
+La duración de la prueba es de **dos días**. No se trata de hacer una prueba de velocidad, por lo que si te surge algún
 imprevisto contacta con nosotros para que podamos ampliar el plazo. 
 
 ## Descripción del ejercicio
