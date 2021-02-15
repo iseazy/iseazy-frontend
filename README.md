@@ -16,7 +16,9 @@ Te sugerimos que empieces implementando la mecánica básica del ejercicio y pos
 que consideres, de esta manera tendrás algo revisable aunque se te acabe el tiempo.
 
 La duración de la prueba es de dos días. No se trata de hacer una prueba de velocidad, por lo que si te surge algún
-imprevisto contacta con nosotros para que podamos ampliar el plazo. Descripción del ejercicio Se trata de implementar un
+imprevisto contacta con nosotros para que podamos ampliar el plazo. 
+
+## Descripción del ejercicio Se trata de implementar un
 juego clásico; el memory. La mecánica es bastante sencilla:
 
 Al empezar la partida tienes una parrilla de tarjetas vistas del reverso. Las tarjetas contienen una serie de parejas de
