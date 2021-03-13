@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from "react";
+import "./App.css";
+import Board from "./components/Board";
+import Start from "./components/Start";
+import {generateDeck} from "./Util/deck";
+
+const STARTSCREEN = 0;
+const BOARDSCREEN = 1;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [deck, setDeck] = useState();
+	const [screen, setScreen] = useState(STARTSCREEN);
+  const startGame = () => {
+    setScreen(BOARDSCREEN);
+    setDeck(generateDeck());
+  }
+	return screen === STARTSCREEN ? (
+		<Start startGame={startGame}></Start>
+	) : (
+		<Board cards={deck}></Board>
+	);
 }
 
 export default App;
