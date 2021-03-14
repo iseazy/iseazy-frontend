@@ -1,4 +1,5 @@
 import React from "react";
+import './index.css';
 import icon from "../../assets/svg/Brainlightbulb.svg";
 
 export default function Start(props) {

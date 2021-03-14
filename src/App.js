@@ -13,10 +13,12 @@ function App() {
 	const [screen, setScreen] = useState(STARTSCREEN);
 	const [completedGame, setCompletedGame] = useState(false);
 	const [flippedCards, setFlippedCards] = useState({});
+	const [time, setTime] = useState();
 
 	const startGame = () => {
 		setScreen(BOARDSCREEN);
 		setDeck(generateDeck());
+		setTime(new Date().getTime());
 	};
 
 	const resetGame = () => {
@@ -25,8 +27,14 @@ function App() {
 		setTimeout(() => {
 			setDeck(generateDeck());
 			setCompletedGame(false);
+			setTime(new Date().getTime());
 		}, 1000);
 	};
+
+	const completeGame = () => {
+		setTime(new Date().getTime() - time);
+		setCompletedGame(true);
+	}
 
 	return (
 		<div className="game">
@@ -35,12 +43,12 @@ function App() {
 			) : (
 				<Board
 					cards={deck}
-					completeGame={() => setCompletedGame(true)}
+					completeGame={completeGame}
 					flippedCards={flippedCards}
 					setFlippedCards={setFlippedCards}
 				></Board>
 			)}
-			{completedGame && <Completed resetGame={resetGame}></Completed>}
+			{completedGame && <Completed resetGame={resetGame} time={time}></Completed>}
 		</div>
 	);
 }
