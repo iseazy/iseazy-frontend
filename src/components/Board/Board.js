@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import './index.css';
-import Card from "../Card";
+import './Board.css';
+import Card from "../Card/Card";
 
 export default function Board(props) {
 	const {cards, completeGame, flippedCards, setFlippedCards} = props;

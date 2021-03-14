@@ -1,5 +1,5 @@
 import React from "react";
-import './index.css';
+import './Start.css';
 import icon from "../../assets/svg/Brainlightbulb.svg";
 
 export default function Start(props) {
@@ -7,10 +7,10 @@ export default function Start(props) {
 	return (
 		<div className="start center-content">
 			<div className="start__icon-container center-content">
-                <img src={icon} alt="icon"></img>
+                <img data-spec="bulbIcon" src={icon} alt="bulb icon"></img>
             </div>
-			<span className="start__title">MeMemory</span>
-			<button className="button" onClick={startGame}>
+			<span data-spec="startTitle" className="start__title">MeMemory</span>
+			<button data-spec="startButton" className="button" onClick={startGame}>
 				Comenzar
 			</button>
 		</div>

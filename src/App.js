@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import "./App.css";
-import Board from "./components/Board";
-import Completed from "./components/Completed";
-import Start from "./components/Start";
+import Board from "./components/Board/Board";
+import Completed from "./components/Completed/Completed";
+import Start from "./components/Start/Start";
 import {generateDeck} from "./Util/deck";
 
 const STARTSCREEN = 0;
