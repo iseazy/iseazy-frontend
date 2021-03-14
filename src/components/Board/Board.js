@@ -10,6 +10,7 @@ export default function Board(props) {
 		setFlippedCards((prevState) => ({...prevState, [id]: true}));
 		setActiveCard(activeCard ? null : {id, copyId});
 		if (activeCard && activeCard.copyId !== copyId) {
+			// We have to wait while the card is flipping before flipping it again
 			setTimeout(() => {
 				setFlippedCards((prevState) => {
 					const newFlippedCards = {...prevState};
