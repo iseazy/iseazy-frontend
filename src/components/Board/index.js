@@ -1,28 +1,42 @@
-import React, { useState } from 'react';
-import Card from '../Card';
+import React, {useState} from "react";
+import Card from "../Card";
 
 export default function Board(props) {
-    const {cards} = props;
-    const [flippedCards, setFlippedCards] = useState({});
-    const [activeCard, setActiveCard] = useState();
-    const onFlip = (id, copyId) => {
-        console.log(id, copyId);
-        setFlippedCards({...flippedCards, [id]: true});
-        if(activeCard && activeCard.copyId !== copyId)  {
-            const newFlippedCards = {...flippedCards};
-            delete newFlippedCards[activeCard.id];
-            delete newFlippedCards[id];
-            setTimeout(() => {
-                setFlippedCards(newFlippedCards);
-            },1000);
-        }
-        setActiveCard(activeCard ? null : {id, copyId});
+	const {cards, completeGame, flippedCards, setFlippedCards} = props;
+	const [activeCard, setActiveCard] = useState();
 
-        // CHECK IF THE GAME IS OVER
-    }
-    return (
-        <div className="board">
-            {cards.map(({image, id, copyId}, index) => <Card key={id} index={index} image={image} isFlipped={flippedCards[id]} flip={() => onFlip(id, copyId)}></Card>)}
-        </div>
-    )
+	const onFlip = (id, copyId) => {
+		setFlippedCards((prevState) => ({...prevState, [id]: true}));
+		setActiveCard(activeCard ? null : {id, copyId});
+		if (activeCard && activeCard.copyId !== copyId) {
+			setTimeout(() => {
+				setFlippedCards((prevState) => {
+					const newFlippedCards = {...prevState};
+					delete newFlippedCards[activeCard.id];
+					delete newFlippedCards[id];
+					return newFlippedCards;
+				});
+			}, 1000);
+		} else if (isGameOver()) {
+			completeGame();
+		}
+	};
+
+	const isGameOver = () => {
+		return Object.keys(flippedCards).length + 1 === cards.length;
+	}
+
+	return (
+		<div className="board">
+			{cards.map(({image, id, copyId}, index) => (
+				<Card
+					key={id}
+					index={index + 1}
+					image={image}
+					isFlipped={flippedCards[id]}
+					flip={() => onFlip(id, copyId)}
+				></Card>
+			))}
+		</div>
+	);
 }
