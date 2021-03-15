@@ -5,4 +5,54 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    .container-background{
+        background: transparent linear-gradient(180deg, #F4F4F4 0%, #E7E8E8 100%) 0% 0% no-repeat padding-box;
+        opacity: 1;
+        padding: 40px;
+        text-align: center;
+
+        .app-title{
+            color: #333333;
+            letter-spacing: -0.35px;
+        }
+        .start-button{
+            color: #fff;
+            background: #E50A4F 0% 0% no-repeat padding-box;
+            border: 0px;
+            border-radius: 35px;
+            opacity: 1;
+            padding: 10px;
+        }
+        .card-list{
+            width: 50%;
+            display: flex;
+            flex-wrap:  wrap;
+            padding: 0px;
+            list-style: none;
+            margin: auto;
+
+            .card-item{
+                -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.59); 
+                box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.59);
+                width: 50px;
+                margin: 10px;
+                padding: 20px;
+                vertical-align: middle;
+                text-align: center;
+                background-image: url('../images/bg-card.svg');
+                border-radius: 10px;
+
+                &.selected{
+                    border: 1px solid #E50A4F;
+                }
+                .span-number{
+                    font-weight: bold;
+                    padding: 5px;
+                    background-color: #fff;
+                    border-radius: 2px;
+                }
+            }
+        }
+    }
   }

@@ -4,4 +4,61 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body .container-background {
+  background: transparent -webkit-gradient(linear, left top, left bottom, from(#F4F4F4), to(#E7E8E8)) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #F4F4F4 0%, #E7E8E8 100%) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  padding: 40px;
+  text-align: center;
+}
+
+body .container-background .app-title {
+  color: #333333;
+  letter-spacing: -0.35px;
+}
+
+body .container-background .start-button {
+  color: #fff;
+  background: #E50A4F 0% 0% no-repeat padding-box;
+  border: 0px;
+  border-radius: 35px;
+  opacity: 1;
+  padding: 10px;
+}
+
+body .container-background .card-list {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0px;
+  list-style: none;
+  margin: auto;
+}
+
+body .container-background .card-list .card-item {
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.59);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.59);
+  width: 50px;
+  margin: 10px;
+  padding: 20px;
+  vertical-align: middle;
+  text-align: center;
+  background-image: url("../images/bg-card.svg");
+  border-radius: 10px;
+}
+
+body .container-background .card-list .card-item.selected {
+  border: 1px solid #E50A4F;
+}
+
+body .container-background .card-list .card-item .span-number {
+  font-weight: bold;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 2px;
+}
 /*# sourceMappingURL=style.css.map */
