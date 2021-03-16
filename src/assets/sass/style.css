@@ -65,6 +65,8 @@ body .container-background .cards-background .card-list {
       -ms-flex-pack: center;
           justify-content: center;
   list-style-position: inside;
+  list-style: none;
+  counter-reset: card-counter;
 }
 
 body .container-background .cards-background .card-list .card-item {
@@ -77,10 +79,16 @@ body .container-background .cards-background .card-list .card-item {
   text-align: center;
   background-image: url("../images/bg-card.svg");
   border-radius: 10px;
+  counter-increment: card-counter;
 }
 
-body .container-background .cards-background .card-list .card-item::marker {
+body .container-background .cards-background .card-list .card-item::before {
+  content: counter(card-counter);
+  display: block;
   font-weight: bold;
+  text-align: center;
+  font-size: 36px;
+  margin: 20px auto;
 }
 
 body .container-background .cards-background .card-list .card-item.selected {
@@ -90,7 +98,7 @@ body .container-background .cards-background .card-list .card-item.selected {
 body .container-background .cards-background .card-list .card-item .card-image {
   display: none;
   position: relative;
-  top: -21px;
+  top: -88px;
   z-index: 1000;
   border-radius: 10px;
 }

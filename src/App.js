@@ -20,7 +20,7 @@ import Cards from './components/Cards'
 function App() {
   const INIT_VIEW = 0
   const CARDS_VIEW = 1
-  const [componentState, setComponentState] = useState(INIT_VIEW)
+  const [componentState, setComponentState] = useState(CARDS_VIEW)
 
   const handleClick = () => {
     return setComponentState(CARDS_VIEW)
