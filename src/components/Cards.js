@@ -54,7 +54,6 @@ function Cards({ setComponentState }) {
     //Main useEffect -> reordenamos el array y seteamos el intervalo
     useEffect(() => {
         setShuffleArrayCards(shuffle(arrayCards))
-        //setShuffleArrayCards(arrayCards)
         if (timerRef.current !== undefined) {
             interval()
         }
@@ -73,7 +72,7 @@ function Cards({ setComponentState }) {
         }
     }, [successCounter])
     return (
-        <>
+        <div className="cards-background">
             <p>Aciertos: {successCounter}</p>
             <p>Tiempo: <span id="timer" ref={timerRef}></span></p>
             <ol className="card-list">
@@ -82,7 +81,7 @@ function Cards({ setComponentState }) {
                         //meehh - Mejorar!!!!
                         item.idHtml = index
                         return (
-                            <li className={`card-item index-${index}`} key={index} onClick={() => selectCard(item, index)}>
+                            <li className="card-item" key={index} onClick={() => selectCard(item, index)}>
                                 <img className={`card-image`} src={require(`../assets/images/${item.image}.png`).default} alt={`card-app-${index}`} title={`card-app-${index}`} />
                             </li>
                         )
@@ -92,7 +91,7 @@ function Cards({ setComponentState }) {
             {successCounter === RESULT_SUCCESS &&
                 <Modal setComponentState={setComponentState} time={timerRef.current.innerHTML} />
             }
-        </>
+        </div>
     );
 }
 

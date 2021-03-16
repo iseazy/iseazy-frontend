@@ -14,6 +14,7 @@ import Cards from './components/Cards'
     -contador tiempo
     -número de cartas dinámico
     -resultado acorde con el número de cartas (dinámico)
+    -responsive
 */
 
 function App() {
@@ -28,11 +29,13 @@ function App() {
   return (
     <div className="container-background">
       {componentState === INIT_VIEW &&
-        <>
-          <img src={logo} alt="logo-app" title="logo-app" />
+        <div className="init-background">
+          <div className="logo-background">
+            <img src={logo} alt="logo-app" title="logo-app" className="logo" />
+          </div>
           <h1 className="app-title">MeMemory</h1>
           <button className="primary-button" onClick={handleClick}>Comenzar</button>
-        </>
+        </div>
       }
       {componentState === CARDS_VIEW &&
         <Cards setComponentState={setComponentState} />
