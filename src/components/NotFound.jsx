@@ -3,6 +3,7 @@ import { Button } from './common/Button';
 
 export function NotFound() {
   const history = useHistory();
+
   return (
     <div
       style={{ backgroundSize: '100% auto' }}

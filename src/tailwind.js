@@ -14,6 +14,7 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       white: '#FFFFFF',
+      black: '#000000',
       'gray-50': '#E7E8E8',
       'gray-100': '#333333',
       'red-100': '#E50A4F'
@@ -62,7 +63,8 @@ module.exports = {
       64: '16rem',
       72: '18rem',
       80: '20rem',
-      96: '24rem'
+      96: '24rem',
+      100: '31.25rem'
     },
     animation: {
       none: 'none',
@@ -116,6 +118,7 @@ module.exports = {
       lg: '0.5rem',
       xl: '0.75rem',
       '2xl': '1rem',
+      '2.5xl': '1.25rem',
       '3xl': '1.5rem',
       full: '9999px'
     },
@@ -135,7 +138,8 @@ module.exports = {
       '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       none: 'none',
-      logo: '0px 3px 6px #00000033'
+      logo: '0px 3px 6px #00000033',
+      modal: '0px 12px 30px #00000099'
     },
     container: {},
     cursor: {
@@ -202,6 +206,7 @@ module.exports = {
       xl: ['1.25rem', { lineHeight: '1.75rem' }],
       '2xl': ['1.5rem', { lineHeight: '2rem' }],
       '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+      '3.5xl': ['2rem', { lineHeight: '2.25rem' }],
       '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
       '4.5xl': ['2.5rem', { lineHeight: '1' }],
       '5xl': ['3rem', { lineHeight: '1' }],
