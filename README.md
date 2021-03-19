@@ -36,3 +36,18 @@ que sigas buscando parejas.
 2) Clonas este repo
 3) Ejecutas "yarn" en la carpeta del proyecto
 4) Ejecutas "yarn start" para comenzar a desarrollar en http://localhost:300
+
+
+## Implementación
+
+Para resolver el problema propuesto y ser una aplicación tan pequeña posiblemente se haya hecho algo de sobreingeniería. Se ha dado una solución un poco más compleja para poder hacer uso de diferentes hooks y de esta manera mostrar su funcionamiento. 
+
+También se ha añadido una dependencia (__flip-card-react__ para las animaciones de las cartas) como prueba del uso de librerías de terceros, así como varias dependencias de desarrollo para facilitar las buenas prácticas a la hora de escalar la aplicación:
+
+- __react-app-rewired__: usada para sobreescribir la configuración de Webpack y poder hacer uso de los _alias_
+- __path__: la usa el fichero _config-overrides.js_ para poder resolver rutas
+- __@testing-library/react-hooks__: bastante útil a la hora de testear __hooks__
+- __husky__: sirve para ejecutar comandos antes de un _git commit_ o un _git push_, en este caso se usa para que los desarrolladores no puedan hacer commit si no pasan todos los test o si ESLint da algún error
+- __lint-staged__: es usada por _husky_ para poder ejecutar comandos
+
+La aplicación es _responsive_ y se puede visualizar correctamente en dispositivos móviles, tablets y pantallas de ordenador.
