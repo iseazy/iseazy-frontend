@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 export function Button({ children, width, disabled, onClick }) {
   const handleClick = (e) => {
     e.preventDefault();
-    e.stopPropagation();
     onClick();
   };
 
