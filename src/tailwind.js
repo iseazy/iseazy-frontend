@@ -14,6 +14,7 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       white: '#FFFFFF',
+      'gray-50': '#E7E8E8',
       'gray-100': '#333333',
       'red-100': '#E50A4F'
     },
@@ -28,9 +29,11 @@ module.exports = {
       3: '0.75rem',
       3.5: '0.875rem',
       4: '1rem',
+      4.5: '1.125rem',
       5: '1.25rem',
       6: '1.5rem',
       7: '1.75rem',
+      7.5: '1.875rem',
       8: '2rem',
       9: '2.25rem',
       10: '2.5rem',
@@ -40,13 +43,15 @@ module.exports = {
       14: '3.5rem',
       15: '3.75rem',
       16: '4rem',
-      17: '4.25rem',
+      17: '4.375rem',
       18: '4.5rem',
       19: '4.75rem',
       20: '5rem',
       24: '6rem',
+      25: '6.25rem',
       28: '7rem',
       32: '8rem',
+      33: '8.125rem',
       36: '9rem',
       40: '10rem',
       44: '11rem',
@@ -77,7 +82,9 @@ module.exports = {
       'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
       'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
       'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
-      'custom-gradient': 'linear-gradient(180deg, #F4F4F4 0%, #E7E8E8 100%)'
+      'custom-gradient': 'linear-gradient(180deg, #F4F4F4 0%, #E7E8E8 100%)',
+      'bg-gradient': 'linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("./assets/Background.svg")',
+      background: 'url("./assets/Background.svg")'
     },
     backgroundOpacity: (theme) => theme('opacity'),
     backgroundPosition: {
@@ -127,7 +134,8 @@ module.exports = {
       xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-      none: 'none'
+      none: 'none',
+      logo: '0px 3px 6px #00000033'
     },
     container: {},
     cursor: {
@@ -195,9 +203,10 @@ module.exports = {
       '2xl': ['1.5rem', { lineHeight: '2rem' }],
       '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
       '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+      '4.5xl': ['2.5rem', { lineHeight: '1' }],
       '5xl': ['3rem', { lineHeight: '1' }],
       '6xl': ['3.75rem', { lineHeight: '1' }],
-      '7xl': ['4.5rem', { lineHeight: '1' }],
+      '7xl': ['4.375rem', { lineHeight: '1' }],
       '8xl': ['6rem', { lineHeight: '1' }],
       '9xl': ['8rem', { lineHeight: '1' }]
     },
@@ -409,7 +418,7 @@ module.exports = {
     },
     letterSpacing: {
       tighter: '-0.05em',
-      tight: '-0.025em',
+      tight: '-0.022em',
       normal: '0em',
       wide: '0.025em',
       wider: '0.05em',
