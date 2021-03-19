@@ -27,8 +27,8 @@ export function Home() {
   // Add pairs into array
   useEffect(() => {
     if (activeCards.length === 2) {
-      if (activeCards[0].item === activeCards[1].item) {
-        setPairs([...pairs, activeCards[0].item]);
+      if (activeCards[0].pairId === activeCards[1].pairId) {
+        setPairs([...pairs, activeCards[0].pairId]);
       }
       const timer = setTimeout(() => {
         setActiveCards([]);
@@ -49,12 +49,12 @@ export function Home() {
     }
   }, [pairs]);
 
-  const handleCardClick = (item, index) => {
+  const handleCardClick = (pairId, cardId) => {
     // Add active card. You can see only 2 cards in time
     if (activeCards.length < 2) {
-      setActiveCards([...activeCards, { item, id: `${item}-${index}` }]);
+      setActiveCards([...activeCards, { pairId, cardId }]);
     } else {
-      setActiveCards([{ item, id: `${item}-${index}` }]);
+      setActiveCards([{ pairId, cardId }]);
     }
   };
 
@@ -63,12 +63,16 @@ export function Home() {
       <LandingPage show={showLanding} onClick={() => setShowLanding(false)} />
       <PlayAgainModal showModal={showModal} onClick={() => setShowModal(false)} time={endTime} />
       <Section show={!showLanding}>
-        {cards.map((item, index) => (
+        {cards.map((card, index) => (
           <Card
-            key={`${item}-${index}`}
-            rotate={pairs.includes(item) || activeCards.find((card) => card.id === `${item}-${index}`) ? true : false}
-            imgId={item}
-            onClick={() => handleCardClick(item, index)}
+            key={`${card.id}-${index}`}
+            rotate={
+              pairs.includes(card.id) || activeCards.find((activeCard) => activeCard.cardId === `${card.id}-${index}`)
+                ? true
+                : false
+            }
+            img={card.img}
+            onClick={() => handleCardClick(card.id, `${card.id}-${index}`)}
           >
             {index + 1}
           </Card>

@@ -1,1 +1,20 @@
-export const CARDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+export const CARDS = [
+  { id: 1, img: 'assets/img/Image-1.png' },
+  { id: 2, img: 'assets/img/Image-2.png' },
+  { id: 3, img: 'assets/img/Image-3.png' },
+  { id: 4, img: 'assets/img/Image-4.png' },
+  { id: 5, img: 'assets/img/Image-5.png' },
+  { id: 6, img: 'assets/img/Image-6.png' },
+  { id: 7, img: 'assets/img/Image-7.png' },
+  { id: 8, img: 'assets/img/Image-8.png' },
+  { id: 9, img: 'assets/img/Image-9.png' },
+  { id: 1, img: 'assets/img/Image-1.png' },
+  { id: 2, img: 'assets/img/Image-2.png' },
+  { id: 3, img: 'assets/img/Image-3.png' },
+  { id: 4, img: 'assets/img/Image-4.png' },
+  { id: 5, img: 'assets/img/Image-5.png' },
+  { id: 6, img: 'assets/img/Image-6.png' },
+  { id: 7, img: 'assets/img/Image-7.png' },
+  { id: 8, img: 'assets/img/Image-8.png' },
+  { id: 9, img: 'assets/img/Image-9.png' }
+];

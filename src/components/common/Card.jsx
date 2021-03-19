@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import './Card.css';
 
-export function Card({ imgId, children, rotate, onClick }) {
+export function Card({ img, children, rotate, onClick }) {
   return (
     <div className={`${rotate ? 'rotate' : ''} flip-card w-16 h-16 sm:w-25 sm:h-25 bg-transparent`}>
       <div className="flip-card-inner duration-700 relative w-full h-full">
@@ -14,7 +14,7 @@ export function Card({ imgId, children, rotate, onClick }) {
         </div>
         <img
           alt="card"
-          src={`assets/img/Image-${imgId}.png`}
+          src={img}
           className="flip-card-back cursor-default text-xs absolute w-full h-full rounded-lg shadow-logo"
         />
       </div>
@@ -24,6 +24,6 @@ export function Card({ imgId, children, rotate, onClick }) {
 Card.propTypes = {
   rotate: PropTypes.bool,
   onClick: PropTypes.func,
-  imgId: PropTypes.number,
+  img: PropTypes.string,
   children: PropTypes.any
 };
