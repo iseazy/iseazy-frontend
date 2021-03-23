@@ -1,3 +1,25 @@
+# Solución
+Autor: Rodrigo Martín de Lamo
+## Juego
+
+Tal y como se pedía he seguido el flujo y los diseños proporcionados para realizar el juego. 
+
+Cada vez que se inicia un nuevo juego las cartas se barajan.
+
+## Estado del tablero
+
+La solución que presento se apoya en 2 objetos, uno que mantiene el estado de las cartas descubiertas y otro que contiene la carta activa (la primera descubierta de cada par de cartas descubiertas).
+
+Cada vez que se pulse en una carta se descubre; seguidamente se comprobará si tenemos una carta activa y en caso de no haberla, ésta pasa ser la activa. Si ya existe una carta activa comprobamos si son pareja, en caso de serlo ambas permanecen descubiertas, en caso contrario se les vuelve a dar la vuelta.
+
+Dado que las cartas tienen una animación debemos esperar el tiempo que tarda la carta en descubrirse para volver a girarlas, sin embargo usando el callback para obtener el estado anterior se mantiene la integridad del mismo.
+
+## Tests
+
+He añadido tests unitarios a todos los componentes usando la librería ya instalada react-testing-library.
+
+También he añadido un test unitario al método que genera el mazo de cartas.
+
 # Prueba técnica
 
 El objetivo de esta prueba es conocer un poco mejor cómo trabajas, las buenas prácticas que sigues y tu atención por el

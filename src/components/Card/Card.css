@@ -1,0 +1,68 @@
+
+.card__outer {
+	flex: 0 1 calc(16.666666% - 20px);
+}
+
+.card {
+	width: 125px;
+	height: 125px;
+	margin: 20px;
+	position: relative;
+	perspective: 600px;
+}
+
+.card__inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 1s;
+	transform-style: preserve-3d;
+}
+
+.card__inner--flipped {
+	transform: rotateY(180deg);
+}
+
+.card__face {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	backface-visibility: hidden;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 15px;
+}
+
+.card__face--front {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+}
+
+.card__face--front::before {
+	border-radius: 15px;
+	content: "";
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background-image: url(../../assets/svg/Background.svg);
+	opacity: 0.3;
+}
+
+.card__face--back {
+	transform: rotateY(180deg);
+}
+
+.card__image {
+	width: 125px;
+	height: 125px;
+	border-radius: 15px;
+}
+
+.card__number {
+	font-size: 50px;
+	font-weight: 600;
+}
