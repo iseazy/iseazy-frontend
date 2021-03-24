@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body .container-background {
+  background: transparent -webkit-gradient(linear, left top, left bottom, from(#F4F4F4), to(#E7E8E8)) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #F4F4F4 0%, #E7E8E8 100%) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  padding: 40px;
+  text-align: center;
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .container-background .primary-button {
+  color: #fff;
+  background: #E50A4F 0% 0% no-repeat padding-box;
+  border: 0px;
+  border-radius: 35px;
+  opacity: 1;
+  padding: 10px;
+}
+
+body .container-background .init-background .logo {
+  margin-top: 8px;
+}
+
+body .container-background .init-background .logo-background {
+  background: #E7E8E8 0% 0% no-repeat padding-box;
+  -webkit-box-shadow: 0px 3px 6px #00000033;
+          box-shadow: 0px 3px 6px #00000033;
+  opacity: 1;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+body .container-background .init-background .app-title {
+  color: #333333;
+  letter-spacing: -0.35px;
+}
+
+body .container-background .cards-background .card-list {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 20px;
+  margin: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style-position: inside;
+  list-style: none;
+  counter-reset: card-counter;
+}
+
+body .container-background .cards-background .card-list .card-item {
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.59);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.59);
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  vertical-align: middle;
+  text-align: center;
+  background-image: url("../images/bg-card.svg");
+  border-radius: 10px;
+  counter-increment: card-counter;
+}
+
+body .container-background .cards-background .card-list .card-item::before {
+  content: counter(card-counter);
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  font-size: 36px;
+  margin: 20px auto;
+}
+
+body .container-background .cards-background .card-list .card-item.selected {
+  border: 1px solid #E50A4F;
+}
+
+body .container-background .cards-background .card-list .card-item .card-image {
+  display: none;
+  position: relative;
+  top: -88px;
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+body .container-background .cards-background .card-list .card-item .card-image.show-card {
+  display: block;
+}
+
+body .container-background .cards-background .modal-response {
+  font-weight: bold;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 40%;
+  z-index: 1000;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  -webkit-box-shadow: 0px 12px 30px #080808;
+          box-shadow: 0px 12px 30px #080808;
+  border-radius: 20px;
+  opacity: 1;
+  padding: 40px;
+}
+
+body .container-background .cards-background .modal-response .title-response {
+  margin-right: 20px;
+}
+
+body .container-background .cards-background .modal-response .primary-button {
+  margin-top: 20px;
+}
+/*# sourceMappingURL=style.css.map */
