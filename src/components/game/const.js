@@ -20,7 +20,7 @@ const cardList = [
   CardImg9
 ]
 
-const Cards = [...cardList, ...cardList]
+const cards = [...cardList, ...cardList]
   .map((img, index) => ({
     img,
     isFlipped: false,
@@ -29,4 +29,6 @@ const Cards = [...cardList, ...cardList]
   }))
   .sort(() => Math.random() - 0.5)
 
-export { Cards }
+const CardsSufled = () => cards.sort(() => Math.random() - 0.5)
+
+export { CardsSufled }

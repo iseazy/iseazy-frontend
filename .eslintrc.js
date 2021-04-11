@@ -9,6 +9,17 @@ module.exports = {
     browser: true,
     es2021: true
   },
+  settings: {
+    react: {
+      version: 'detect'
+    },
+    linkComponents: ['Hyperlink', { name: 'Link', linkAttribute: 'to' }],
+    'import/resolver': {
+      node: {
+        moduleDirectory: ['node_modules', 'src/']
+      }
+    }
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',

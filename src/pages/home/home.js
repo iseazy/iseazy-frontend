@@ -1,22 +1,24 @@
-import { useState } from 'react'
+import { useContext } from 'react'
+
 
 import Game from 'components/game'
 import InitialState from 'components/initialState'
+import Modal from 'components/modal'
 
-import styles from './home.module.scss'
+import { TimerContext } from 'context/timer'
 
 const home = () => {
-  const [gameStart, setGameStart] = useState(true)
+  const { timer, setTimer } = useContext(TimerContext)
 
-  return (
-    <div className={styles.home}>
-      {gameStart ? (
+  if (timer) {
+    return (
+      <>
+        <Modal />
         <Game />
-      ) : (
-        <InitialState setGameStart={() => setGameStart(true)} />
-      )}
-    </div>
-  )
+      </>
+    )
+  }
+  return <InitialState setGameStart={() => setTimer(new Date())} />
 }
 
 export default home
