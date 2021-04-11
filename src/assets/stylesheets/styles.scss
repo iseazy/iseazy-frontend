@@ -1,0 +1,18 @@
+// GLOBALS
+@import 'globals/settings';
+@import 'globals/mixins';
+
+// BASE
+@import 'base/normalize';
+@import 'base/base';
+
+// COMPONENTS
+@import '../../ui/layout/MainLayout/main-layout';
+@import '../../ui/layout/Board/board';
+
+@import '../../ui/views/Home/home';
+
+@import '../../ui/components/Button/button';
+@import '../../ui/components/Card/card';
+@import '../../ui/components/CardImage/card-image';
+@import '../../ui/components/EndGameModal/end-game-modal';

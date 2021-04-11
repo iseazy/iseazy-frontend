@@ -1,0 +1,10 @@
+.button {
+  min-width: rem(240);
+  height: rem(70);
+  padding: rem(20);
+  background: $red 0% 0% no-repeat padding-box;
+  border-radius: rem(35);
+  color: $white;
+  font-size: rem(26);
+  font-weight: bold;
+}

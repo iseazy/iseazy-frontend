@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
 
-function App() {
+import Board from './containers/Board'
+
+import MainLayout from './ui/layout/MainLayout'
+import Home from './ui/views/Home'
+
+const App = () => {
+  const [isStarted, setIsStarted] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <MainLayout>
+      {isStarted ? <Board /> : <Home onClickStart={() => setIsStarted(true)} />}
+    </MainLayout>
+  )
 }
 
-export default App;
+export default App

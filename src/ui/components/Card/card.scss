@@ -1,0 +1,33 @@
+.card {
+  position: relative;
+  display: flex;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  height: rem(100);
+  width: rem(100);
+  border-radius: rem(10);
+  background: $white-light 0% 0% no-repeat padding-box; // TODO: color variable ?
+  box-shadow: 0px rem(3) rem(6) $black-dark; // TODO: color variable ?
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('../../../assets/images/cards/background.svg');
+    opacity: 0.2;
+  }
+
+  &-text {
+    font-size: rem(40);
+    font-weight: bold;
+    color: $black-light;
+  }
+}
