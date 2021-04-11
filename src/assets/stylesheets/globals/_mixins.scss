@@ -1,0 +1,25 @@
+@function rem($size) {
+  @return #{$size / $font-base}rem;
+}
+
+// Breakpoints
+
+$grid-breakpoints: (
+  // Small screen
+  sm: 576px,
+  // Medium screen
+  md: 768px,
+  // Large screen
+  lg: 992px,
+  // Extra large screen
+  xl: 1200px,
+  // Extra extra large screen
+  xxl: 1440px
+);
+
+@mixin mq($breakpoint) {
+  $width: map-get($grid-breakpoints, $breakpoint);
+  @media (min-width: #{$width}) {
+    @content;
+  }
+}

@@ -1,0 +1,7 @@
+.cardImage {
+  height: rem(100);
+  width: rem(100);
+  border-radius: rem(10);
+  background: $white-light 0% 0% no-repeat padding-box; // TODO: color variable ?
+  box-shadow: rem(0) rem(3) rem(6) $black-dark; // TODO: color variable ?
+}
