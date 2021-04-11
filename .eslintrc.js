@@ -1,13 +1,13 @@
 const RULES = {
-  OFF: "off",
-  ERROR: "error",
-  WARN: "warn",
-};
+  OFF: 'off',
+  ERROR: 'error',
+  WARN: 'warn'
+}
 
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2021: true
   },
   extends: [
     'eslint:recommended',
@@ -17,38 +17,44 @@ module.exports = {
   ],
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module'
   },
-  plugins: ["react"],
+  plugins: ['react'],
   rules: {
-    "react/react-in-jsx-scope": RULES.OFF,
-    "react/prop-types": RULES.OFF,
-    "import/order": [
+    'react/react-in-jsx-scope': RULES.OFF,
+    'react/prop-types': RULES.OFF,
+    'no-unused-vars': RULES.WARN,
+    'import/order': [
       RULES.ERROR,
       {
-        groups: ["builtin", "external", "internal"],
+        groups: ['builtin', 'external', 'internal'],
         pathGroups: [
           {
-            pattern: "{react,next/**}",
-            group: "builtin",
-            position: "before",
+            pattern: '{react,react-dom}',
+            group: 'builtin',
+            position: 'before'
           },
           {
-            pattern: "{assets/icons}",
-            group: "internal",
-            position: "after",
+            pattern: '{pages/**,components/**}',
+            group: 'internal',
+            position: 'before'
           },
+          {
+            pattern: 'assets/**',
+            group: 'internal',
+            position: 'after'
+          }
         ],
-        pathGroupsExcludedImportTypes: ["builtin"],
-        "newlines-between": "always",
+        pathGroupsExcludedImportTypes: ['builtin'],
+        'newlines-between': 'always',
         alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
-        },
-      },
-    ],
-  },
-};
+          order: 'asc',
+          caseInsensitive: true
+        }
+      }
+    ]
+  }
+}

@@ -13,19 +13,24 @@
 
 html,
 body {
+  font-family: var(--font);
   height: 100%;
   margin: 0;
-  font-family: var(--font);
-}
-
-#root {
-  height: 100%;
+  & > div {
+    height: 100%;
+  }
+  h1,
+  p {
+    color: var(--text);
+  }
+  svg {
+    fill: var(--text);
+  }
 }
 
 .app {
   align-items: center;
   background: transparent linear-gradient(180deg, var(--background) 0%, var(--bgLogo) 100%) 0% 0% no-repeat padding-box;
-  color: var(--text);
   display: flex;
   height: 100%;
   justify-content: center;

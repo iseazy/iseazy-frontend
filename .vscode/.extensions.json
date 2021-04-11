@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "bfanger.vscode-styled-jsx-plugin-scss",
+    "dbaeumer.vscode-eslint",
+    "divlo.vscode-styled-jsx-languageserver",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "waderyan.gitblame"
+  ]
+}
