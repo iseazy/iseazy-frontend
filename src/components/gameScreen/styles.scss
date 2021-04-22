@@ -1,0 +1,20 @@
+@import './../../theme/index.scss';
+
+.cards-container  {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 700px;
+  height: 345px;
+}
+
+.results-screen{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color:$color-background-opacity;
+}
