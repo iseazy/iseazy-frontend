@@ -1,0 +1,17 @@
+.layout {
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100vh;
+  background: transparent linear-gradient(180deg, #F4F4F4 0%, #E7E8E8 100%) 0% 0% no-repeat padding-box;
+}
+
+.layout__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  width: 800px;
+  height: 500px;  
+}

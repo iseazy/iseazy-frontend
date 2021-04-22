@@ -1,0 +1,38 @@
+@import './../../theme/index.scss';
+
+$card-size: 100px;
+
+.card {
+  width: $card-size;
+  height: $card-size;
+  font-size: 4rem;
+  border-radius: $border-radius-small;
+  border: 1px solid $color-border;
+  box-shadow: $box-shadow;
+  overflow: hidden;
+  
+  &__tail {
+    background: repeat center top url('./../../img/fondo.png');
+    width: 100%;
+    height: 100%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  &__head {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    background: repeat center top url('./../../img/fondo.png');
+  }
+}
+
+@for $i from 1 through 9 {
+  .card__head--cat-#{$i} {
+    background-image: url('./../../img/card_#{$i}.png');  
+  }
+}
