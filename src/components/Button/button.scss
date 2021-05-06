@@ -1,0 +1,20 @@
+@import "assets/styles/index.scss";
+
+.button {
+  background-color: $magenta;
+  border-radius: 35px;
+  width: 240px;
+  height: 70px;
+  font: normal normal bold 26px/30px Roboto;
+  letter-spacing: 0px;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  &:hover {
+    background-color: $dark-gray2;
+    color: $magenta;
+  }
+}
