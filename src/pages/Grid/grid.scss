@@ -1,0 +1,9 @@
+@import "assets/styles/index.scss";
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 120px 125px;
+  gap: 30px;
+}
