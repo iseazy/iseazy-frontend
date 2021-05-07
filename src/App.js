@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import _ from "lodash";
+import React, { useEffect, useReducer } from "react";
+import "App.scss";
+import * as AppActions from "store/app.actions";
+import AppContext from "context/Appcontext";
+import AppReducer, { initialState } from "store/app.reducer";
+import Home from "pages/Home/Home";
+import Grid from "pages/Grid/Grid";
+import Modal from "components/Modal/Modal";
 
 function App() {
+  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const { items } = state;
+
+  useEffect(() => {
+    const inactiveItems = _.filter(items, function (o) {
+      return !o.flip;
+    });
+    if (inactiveItems.length === 0) {
+      dispatch(AppActions.endApplication());
+    }
+  }, [items]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider
+      value={{
+        state,
+        dispatch,
+      }}
+    >
+      <div className="App">
+        {!state.start && <Home />}
+        {state.start && <Grid />}
+        {state.end && <Modal />}
+      </div>
+    </AppContext.Provider>
   );
 }
 

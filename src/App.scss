@@ -1,0 +1,12 @@
+@import "assets/styles/index.scss";
+
+.App {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent linear-gradient(180deg, $gray 0%, $gray-dark 100%) 0%
+    0% no-repeat padding-box;
+}

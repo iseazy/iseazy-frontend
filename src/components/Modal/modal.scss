@@ -1,0 +1,43 @@
+@import "assets/styles/index.scss";
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .block {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    border-radius: 20px;
+    .button {
+      margin-top: 32px;
+    }
+    .text {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font: normal normal bold 32px/38px Roboto;
+        color: $black;
+      }
+      .time {
+        img {
+          margin-right: 10px;
+        }
+        font: normal normal bold 60px/71px Roboto;
+        color: $black;
+      }
+    }
+  }
+}
