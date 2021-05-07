@@ -7,7 +7,7 @@ import Button from "components/Button/Button";
 import AppContext from "context/Appcontext";
 
 const Front = () => {
-  const { state, dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   return (
     <>
       <div className="icon">

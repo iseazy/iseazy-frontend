@@ -11,9 +11,7 @@ import Modal from "components/Modal/Modal";
 function App() {
   const [state, dispatch] = useReducer(AppReducer, initialState);
   const { items } = state;
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
+
   useEffect(() => {
     const inactiveItems = _.filter(items, function (o) {
       return !o.flip;
@@ -22,6 +20,7 @@ function App() {
       dispatch(AppActions.endApplication());
     }
   }, [items]);
+
   return (
     <AppContext.Provider
       value={{

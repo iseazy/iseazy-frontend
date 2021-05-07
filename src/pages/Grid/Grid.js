@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "components/Card/Card";
 import "./grid.scss";
 import AppContext from "context/Appcontext";
