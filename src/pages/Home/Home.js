@@ -14,7 +14,7 @@ const Front = () => {
         <img src={logo} className="App-logo" alt="logo" />
       </div>
       <h1>MeMemory</h1>
-      <Button onClick={() => dispatch(AppActions.StartApplication())}>
+      <Button onClick={() => dispatch(AppActions.startApplication())}>
         Comenzar
       </Button>
     </>
