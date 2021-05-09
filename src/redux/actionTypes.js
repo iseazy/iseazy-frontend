@@ -1,0 +1,7 @@
+export const CURRENT_PAGE = "CURRENT_PAGE"
+export const CARDS = "CARDS"
+export const FIRST_CARD = "FIRST_CARD"
+export const SECOND_CARD = "SECOND_CARD"
+export const MATCHES = "MATCHES"
+export const START_GAME_TIME = "START_GAME_TIME"
+export const RESET_GAME = "RESET_GAME"
