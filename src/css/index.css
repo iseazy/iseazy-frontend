@@ -1,0 +1,84 @@
+/******* Reset ******/
+body {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+img, h1 {
+    pointer-events: none;
+}
+
+/******* Fonts ******/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+
+
+/******* Import Syles ******/
+@import url(../css/cards.css);
+@import url(../css/game.css);
+@import url(../css/home.css);
+@import url(../css/modal.css);
+
+
+/***** Theme Variables *****/
+:root {
+    --baseFont: 'Roboto', sans-serif;
+    --gradientBackground: transparent linear-gradient(180deg, #F4F4F4 0%, #E7E8E8 100%) 0% 0% no-repeat padding-box;
+    --mainButtonBackgroundColor: #E50A4F;
+    --mainButtonContentColor: #FFF;
+}
+
+
+/****** App Generic Elements *****/
+/*********************************/
+
+/****** Base Font *****/
+body {
+    font-family: var( --baseFont );
+}
+
+
+/**** Full Viewport Containers ****/
+.mem-container {
+	height: calc(0px + 100vh);
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var( --gradientBackground );
+}
+
+.mem-startpage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    bottom: 0; 
+    left: 0;
+    background: var( --gradientBackground );
+}
+
+
+/****** Main Button ******/
+.mem-button {
+    font-family: var( --baseFont );
+    background-color: var( --mainButtonBackgroundColor );
+    border-radius: 35px;
+    margin-top: 30px;
+    font-size: 26px;
+    letter-spacing: 0px;
+    color: var( --mainButtonContentColor );
+    border: 0;
+    width: 240px;
+    height: 70px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.mem-button:hover {
+    opacity: 0.6;
+    transform: scale(0.98, 0.98);
+}

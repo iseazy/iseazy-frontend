@@ -1,0 +1,102 @@
+.mem-modal--backdrop {
+    background-color: #000;
+    opacity: 0.5;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.mem-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1010;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mem-modal__content {
+    width: 100%;
+    height: 50%;
+    max-width: 500px;
+    max-height: 250px;
+    border-radius: 25px;
+    background-color: #FFF;
+    animation: enter 1s ease-in-out;
+}
+
+.mem-modal__content--container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 250px;
+    justify-content: space-around;
+}
+
+.mem-modal__content--container-result {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-between;
+    margin-top: 20px;
+}
+
+.mem-modal__content--container-result__label--completed {
+    font-family: var( --baseFont );
+    font-size: 32px;
+    color: #333;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.mem-modal__content--container-result__label--duration {
+    font-family: var( --baseFont );
+    font-size: 60px;
+    color: #333;
+}
+
+.mem-modal__content--container-button {
+    width: 500px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.mem-modal__content div img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+.mem-modal__content--button {
+    padding: 20px 45px;
+    margin: 0 auto;
+    border: 0;
+    border-radius: 35px;
+    background-color: var( --mainButtonBackgroundColor );
+    color: var( --mainButtonContentColor );
+    font-family: var( --baseFont );
+    font-size: 26px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.mem-modal__content--button:hover {
+    opacity: 0.6;
+    transform: scale(0.98, 0.98);
+}
+
+
+@keyframes enter {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

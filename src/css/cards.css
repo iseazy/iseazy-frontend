@@ -1,0 +1,49 @@
+.mem-card {
+  cursor: pointer;
+  background-color: #FFF;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s;
+}
+
+.mem-card:active {
+  transform: scale(.95);
+  transition: transform .2s;
+}
+
+.mem-card__img {
+  border-radius: 10px;
+  box-shadow: 0px 5px 6px #ccc;
+ 
+}
+
+.mem-card--bg {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.mem-card--bg__img {
+  display: inline-block;
+  opacity: 0.2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mem-card--bg__label{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  font-family: var( --baseFont );
+  font-size: 40px;
+  cursor: pointer;
+}
