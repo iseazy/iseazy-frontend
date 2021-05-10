@@ -1,15 +1,18 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { connect, useSelector } from 'react-redux'
-import { setStartGameTime, setMatch, setFirstCard, setSecondCard, resetGame } from 'actions'
+import { setMatch, setFirstCard, setSecondCard, resetGame } from 'actions'
 import Modal from '../modal/Modal'
 import getTimeInterval from '../../js/getTimeInterval'
 import CardsBoard from '../cards/CardsBoard'
 import clockImage from '../../images/clock.svg'
+import useForceRender from '../../js/useForceRender'
 
 
 const Game = (props) => {
 
     const { dispatch } = props
+
+    const selfReRender = useForceRender()
 
     const [ isBoardLocked, setIsBoardLocked ] = useState(false)
     const [ isGameEnded, setIsGameEnded ] = useState(false)
@@ -22,16 +25,6 @@ const Game = (props) => {
     const startGameTime = useSelector( store => store.startGameTime )
 
     const fullMatches = cards.length / 2
-
-    /***************** Trick to force re-rendering ***************/
-    const [, updateState] = React.useState();
-    const reRender = React.useCallback(() => updateState({}), []);
-    /*************************************************************/
-    
-    
-    useEffect(() => {
-        dispatch(setStartGameTime(new Date().getTime()))
-    }, [])
 
 
     useEffect( () => {
@@ -69,7 +62,7 @@ const Game = (props) => {
     const handleCkick = () => {
         setIsGameEnded(false)
         dispatch(resetGame())
-        reRender()
+        selfReRender()
     }
 
     return(

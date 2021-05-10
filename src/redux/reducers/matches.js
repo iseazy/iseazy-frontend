@@ -1,6 +1,6 @@
 import * as actionTypes from 'actionTypes'
 
-export const matches = (state = [], action) => {
+export const matches = (state = null, action) => {
 	switch(action.type) {
 		case actionTypes.MATCHES:
 			const tmpState = [...state]
@@ -8,7 +8,7 @@ export const matches = (state = [], action) => {
 			
 			return tmpState
 		case actionTypes.RESET_GAME:
-			return []
+			return action.payload.matches
 		default:
 			return state
 	}

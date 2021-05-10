@@ -1,11 +1,11 @@
 import * as actionTypes from 'actionTypes'
 
-export const firstCard = (state = "", action) => {
+export const firstCard = (state = null, action) => {
 	switch(action.type) {
 		case actionTypes.FIRST_CARD:
 			return action.payload
 		case actionTypes.RESET_GAME:
-			return ""
+			return action.payload.firstCard
 		default:
 			return state
 	}

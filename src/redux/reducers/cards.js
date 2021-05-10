@@ -1,12 +1,11 @@
 import * as actionTypes from 'actionTypes'
-import getInitializedCards from '../../js/cards'
 
-export const cards = (state = getInitializedCards(), action) => {
+export const cards = (state = null, action) => {
 	switch(action.type) {
 		case actionTypes.CARDS:
 			return action.payload
 		case actionTypes.RESET_GAME:
-			return getInitializedCards()
+			return action.payload.cards
 		default:
 			return state
 	}

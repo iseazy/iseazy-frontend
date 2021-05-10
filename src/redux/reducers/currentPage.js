@@ -1,7 +1,7 @@
 import * as actionTypes from 'actionTypes'
 import PAGES from '../../js/pages'
 
-export const currentPage = (state = PAGES.HOME, action) => {
+export const currentPage = (state = null, action) => {
 	switch(action.type) {
 		case actionTypes.CURRENT_PAGE:
 			return action.payload

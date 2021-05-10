@@ -1,4 +1,5 @@
 import * as actionTypes from 'actionTypes';
+import getAppInitialState from '../js/getAppInitialState'
 
 export const setCurrentPage = (page) => {
   return {
@@ -37,6 +38,7 @@ export const setMatch = (card) => {
 
 export const resetGame = () => {
   return {
-    type: actionTypes.RESET_GAME
+    type: actionTypes.RESET_GAME,
+    payload: {...getAppInitialState()}
   }
 }

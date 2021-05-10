@@ -5,7 +5,7 @@ export const startGameTime = (state = null, action) => {
 		case actionTypes.START_GAME_TIME:
 			return action.payload
 		case actionTypes.RESET_GAME:
-			return new Date().getTime()
+			return action.payload.startGameTime
 		default:
 			return state
 	}
