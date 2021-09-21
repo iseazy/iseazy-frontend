@@ -1,16 +1,18 @@
 import FlipCard from "./FlipCard"
 
-export default function GameScreen({
-    cards,
-
-    onSelectCard,
-}) {
-    return <div>
-        { cards.map((card, idx) => <FlipCard
-            key={card.id}
-            card={card}
-            num={idx+1}
-            onClick={() => onSelectCard(card.id)}
-        />) }
+export default function GameScreen({ cards, onSelectCard }) {
+    return <div className="min-h-screen bg-gradient">
+        <div className="flex flex-wrap justify-center mx-auto pt-7 max-w-xl">
+            { cards.map((card, idx) => <div
+                key={card.id}
+                className="p-2"
+            >
+                <FlipCard
+                    card={card}
+                    num={idx+1}
+                    onClick={() => onSelectCard(card.id)}
+                />
+            </div>)}
+        </div>
     </div>
 }

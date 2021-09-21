@@ -5,6 +5,24 @@ import BigButton from "./BigButton"
 
 import clock from "../images/clock.svg"
 
+const customStyles = {
+    overlay: {
+        backgroundColor: "rgba(0, 0, 0, 0.6)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    content: {
+        position: "static",
+        borderRadius: "20px",
+        inset: "auto",
+        maxWidth: "500px",
+        width: "100%",
+
+        padding: "30px 50px",
+    }
+}
+
 export default function VictoryModal({
     start,
     end,
@@ -16,22 +34,30 @@ export default function VictoryModal({
     const duration = end.diff(start)
 
     return <Modal
+        className="shadow-lg bg-white"
+        style={customStyles}
         isOpen
     >
-        <p>
-            ¡Completado!
-        </p>
+        <div className="flex items-center">
+            <p className="text-xl text-black">
+                ¡Completado!
+            </p>
 
-        <img src={clock} alt="" />
+            <img
+                className="ml-auto"
+                src={clock}
+                alt=""
+            />
 
-        <span>
-            { duration.toFormat("mm:ss") }
-        </span>
+            <span className="text-3xl text-blcak ml-1">
+                { duration.toFormat("m:ss") }
+            </span>
+        </div>
 
-        <BigButton
-            onClick={onPlayAgain}
-        >
-            Jugar otra vez
-        </BigButton>
+        <div className="mt-5 flex justify-center">
+            <BigButton onClick={onPlayAgain}>
+                Jugar otra vez
+            </BigButton>
+        </div>
     </Modal>
 }
