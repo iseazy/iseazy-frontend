@@ -17,6 +17,7 @@ const CARD_IMAGES = [img3, img4, img5, img8, img9, img10, img15, img16, img17]
 
 export function createCardDeck(num) {
     if (!isEven(num)) throw new Error("A deck must have an even number of cards.")
+    if (num/2 > CARD_IMAGES.length) throw new Error("Don't have enough images.")
 
     const cards = []
     for (let i = 0; i < num/2; i++) {
@@ -34,10 +35,11 @@ export function createCardDeck(num) {
 }
 
 export function checkGameState(cards, flippedIds, { onVictory, onMistake }={}) {
+    if (flippedIds.length === 0) return
     if (!isEven(flippedIds.length)) return
 
-    const currId = flippedIds.at(-1)
-    const prevId = flippedIds.at(-2)
+    const currId = flippedIds[flippedIds.length - 1]
+    const prevId = flippedIds[flippedIds.length - 2]
 
     const curr = cards.find(c => c.id === currId)
     const prev = cards.find(c => c.id === prevId)
