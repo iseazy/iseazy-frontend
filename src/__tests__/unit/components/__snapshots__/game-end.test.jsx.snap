@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameEnd /> should render component 1`] = `
+<DocumentFragment>
+  <div
+    class="game-end"
+  >
+    <div
+      class="game-end__popup"
+    >
+      <div
+        class="game-end__title"
+      >
+        <div>
+          ¡Completado!
+        </div>
+        mockedIcon
+        <h1>
+          2:30
+        </h1>
+      </div>
+      <button
+        class="game-end__button"
+      >
+        Jugar otra vez
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

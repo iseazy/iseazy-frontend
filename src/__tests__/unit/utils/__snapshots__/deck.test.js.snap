@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createDeck() should return a deck 1`] = `
+Array [
+  Object {
+    "a": "sourceA",
+    "i": 0,
+  },
+  Object {
+    "a": "sourceB",
+    "i": 1,
+  },
+  Object {
+    "a": "sourceC",
+    "i": 2,
+  },
+  Object {
+    "a": "sourceA",
+    "i": 3,
+  },
+  Object {
+    "a": "sourceB",
+    "i": 4,
+  },
+  Object {
+    "a": "sourceC",
+    "i": 5,
+  },
+]
+`;

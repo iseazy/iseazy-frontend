@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cardClicked() should result flip unflipped card 1`] = `
+Object {
+  "cards": Array [
+    Object {
+      "clicked": false,
+      "flipped": true,
+      "id": 1,
+      "sharedId": 123,
+      "src": "testSourceA",
+    },
+    Object {
+      "clicked": false,
+      "flipped": true,
+      "id": 2,
+      "sharedId": 123,
+      "src": "testSourceA",
+    },
+    Object {
+      "clicked": true,
+      "flipped": true,
+      "id": 3,
+      "sharedId": 456,
+      "src": "testSourceB",
+    },
+    Object {
+      "clicked": true,
+      "flipped": true,
+      "id": 4,
+      "sharedId": 456,
+      "src": "testSourceB",
+    },
+    Object {
+      "clicked": false,
+      "flipped": false,
+      "id": 5,
+      "sharedId": 789,
+      "src": "testSourceC",
+    },
+    Object {
+      "clicked": false,
+      "flipped": false,
+      "id": 6,
+      "sharedId": 789,
+      "src": "testSourceC",
+    },
+  ],
+}
+`;

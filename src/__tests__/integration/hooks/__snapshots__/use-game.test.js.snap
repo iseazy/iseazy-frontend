@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useGame() should render hook with an initial state 1`] = `
+Object {
+  "cards": Array [],
+  "clickCard": [Function],
+  "gameState": "idle",
+  "start": [Function],
+  "totalTime": 0,
+}
+`;

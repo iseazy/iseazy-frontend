@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameCard /> should render flipped card 1`] = `
+<DocumentFragment>
+  <div
+    class="game-play-card__wrap"
+  >
+    <button
+      class="game-play__card game-play__card--flipped"
+      style="background-image: url(testSource);"
+    >
+      <h1 />
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<GameCard /> should render unflipped card 1`] = `
+<DocumentFragment>
+  <div
+    class="game-play-card__wrap"
+  >
+    <button
+      class="game-play__card game-play__card--enabled"
+      style="background-image: url(images/background.svg);"
+    >
+      <h1>
+        0
+      </h1>
+    </button>
+  </div>
+</DocumentFragment>
+`;

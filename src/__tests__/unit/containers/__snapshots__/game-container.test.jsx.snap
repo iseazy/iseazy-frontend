@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameContainer /> should render game end screen in top of game play screen 1`] = `
+<DocumentFragment>
+  <div
+    class="game-container"
+  >
+    GamePlayGameEnd
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<GameContainer /> should render game intro screen 1`] = `
+<DocumentFragment>
+  <div
+    class="game-container"
+  >
+    GameIntro
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<GameContainer /> should render game play screen 1`] = `
+<DocumentFragment>
+  <div
+    class="game-container"
+  >
+    GamePlay
+  </div>
+</DocumentFragment>
+`;

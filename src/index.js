@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { GameContainer } from './containers/game-container';
+import './assets/styles/styles.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GameContainer />
   </React.StrictMode>,
   document.getElementById('root')
 );

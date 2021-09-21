@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gameStarted() should initialize gameState, create shuffled deck and set startTime 1`] = `
+Object {
+  "cards": undefined,
+  "gameState": "play",
+  "startTime": 123,
+}
+`;

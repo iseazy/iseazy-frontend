@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameIntro /> should render component 1`] = `
+<DocumentFragment>
+  <div
+    class="game-intro"
+  >
+    <div
+      class="game-intro__icon"
+    >
+      mockedIcon
+    </div>
+    <h1>
+      MeMemory
+    </h1>
+    <button
+      class="game-intro__button"
+    >
+      Comenzar
+    </button>
+  </div>
+</DocumentFragment>
+`;

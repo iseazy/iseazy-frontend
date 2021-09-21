@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GamePlay /> should render component with cards 1`] = `
+<DocumentFragment>
+  <div
+    class="game-play"
+  >
+    <div
+      class="game-play__grid"
+    >
+      card with props [id=1;src=testSourceA;flipped=true;title=1]
+card with props [id=2;src=testSourceA;flipped=true;title=2]
+card with props [id=3;src=testSourceB;flipped=true;title=3]
+card with props [id=4;src=testSourceB;flipped=false;title=4]
+card with props [id=5;src=testSourceC;flipped=false;title=5]
+card with props [id=6;src=testSourceC;flipped=false;title=6]
+
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<GamePlay /> should render component without cards 1`] = `
+<DocumentFragment>
+  <div
+    class="game-play"
+  >
+    <div
+      class="game-play__grid"
+    />
+  </div>
+</DocumentFragment>
+`;
