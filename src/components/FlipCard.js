@@ -12,7 +12,7 @@ export default function FlipCard({
     }
 
     return <button
-        className={`block shadow bg-white rounded overflow-hidden cursor-pointer select-none hover:scale-110 focus:scale-110 transition-transform ${className}`}
+        className={`block shadow bg-white rounded overflow-hidden cursor-pointer select-none hover:scale-110 focus:scale-110 transition-transform relative ${className}`}
         onClick={handleClick}
     >
         { card.flipped ? <img
@@ -21,7 +21,7 @@ export default function FlipCard({
             height="100"
             src={card.img}
             alt=""
-        /> : <div className="relative">
+        /> : <>
             <img
                 className="block opacity-20"
                 width="100"
@@ -32,6 +32,6 @@ export default function FlipCard({
             <div className="absolute inset-0 flex justify-center items-center text-2xl text-black">
                 { num.toString() }
             </div>
-        </div> }
+        </> }
     </button>
 }

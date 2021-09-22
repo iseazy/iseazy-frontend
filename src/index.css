@@ -210,6 +210,9 @@ body {
     padding-bottom: 20px;
 }
 
-.pt-7 {
-    padding-top: 79px;
+@media (min-width: 800px) {
+    .md\:py-7 {
+        padding-top: 79px;
+        padding-bottom: 79px;
+    }
 }

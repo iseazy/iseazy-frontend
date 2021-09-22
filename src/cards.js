@@ -15,6 +15,14 @@ import img17 from "./images/cards/Imagen 17.png"
 
 const CARD_IMAGES = [img3, img4, img5, img8, img9, img10, img15, img16, img17]
 
+// Returns an array of card objects of length `num`.
+// `num` must even, as we need to have two cards of each to be able to play
+// a game of memory.
+//
+// A card is an object: {
+//  id:  string  // A random id
+//  img: string  // Image URL
+// }
 export function createCardDeck(num) {
     if (!isEven(num)) throw new Error("A deck must have an even number of cards.")
     if (num/2 > CARD_IMAGES.length) throw new Error("Don't have enough images.")
@@ -34,6 +42,9 @@ export function createCardDeck(num) {
     return shuffle(cards)
 }
 
+// Given an array of `cards`, and a log of flipped cards (`flippedIds`),
+// checks if a victory condition was achieved, or an incorrect pair was flipped,
+// and if so, calls the appropriate callbacks.
 export function checkGameState(cards, flippedIds, { onVictory, onMistake }={}) {
     if (flippedIds.length === 0) return
     if (!isEven(flippedIds.length)) return
