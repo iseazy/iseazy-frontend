@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import './index.css';
 import "./unstyle.css";
-import App from './App';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import Modal from "react-modal"
 import store from "./store"
