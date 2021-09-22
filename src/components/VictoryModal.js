@@ -1,41 +1,28 @@
 import Modal from "react-modal"
+import { useSelector, useDispatch } from "react-redux"
 import { DateTime } from "luxon"
+
+import { start } from "../store"
 
 import BigButton from "./BigButton"
 
 import clock from "../images/clock.svg"
 
-const customStyles = {
-    overlay: {
-        backgroundColor: "rgba(0, 0, 0, 0.6)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    content: {
-        position: "static",
-        borderRadius: "20px",
-        inset: "auto",
-        maxWidth: "500px",
-        width: "100%",
+export default function VictoryModal() {
+    const dispatch = useDispatch()
 
-        padding: "30px 50px",
+    const handlePlayAgainClick = (event) => {
+        event.preventDefault()
+        dispatch(start())
     }
-}
 
-export default function VictoryModal({
-    start,
-    end,
-    onPlayAgain
-}) {
-    start = DateTime.fromJSDate(start)
-    end = DateTime.fromJSDate(end)
-
-    const duration = end.diff(start)
+    const startTime = useSelector(s => DateTime.fromISO(s.startTime))
+    const end = useSelector(s => DateTime.fromISO(s.endTime))
+    const duration = end.diff(startTime)
 
     return <Modal
-        className="shadow-lg bg-white"
-        style={customStyles}
+        className="shadow-lg bg-white rounded-lg max-w-lg w-100 py-5 px-6"
+        overlayClassName="fixed inset-0 flex items-center justify-center bg-translucent"
         isOpen
     >
         <div className="flex items-center">
@@ -49,13 +36,16 @@ export default function VictoryModal({
                 alt=""
             />
 
-            <span className="text-3xl text-blcak ml-1">
+            <time
+                dateTime={duration.toISO()}
+                className="text-3xl text-black ml-1"
+            >
                 { duration.toFormat("m:ss") }
-            </span>
+            </time>
         </div>
 
         <div className="mt-5 flex justify-center">
-            <BigButton onClick={onPlayAgain}>
+            <BigButton onClick={handlePlayAgainClick}>
                 Jugar otra vez
             </BigButton>
         </div>

@@ -12,7 +12,7 @@ export default function FlipCard({
     }
 
     return <button
-        className={`block shadow bg-white rounded overflow-hidden cursor-pointer select-none hover:scale-110 focus:scale-110 transition-transform relative ${className}`}
+        className={`block shadow bg-white rounded overflow-hidden select-none hover:scale-110 focus:scale-110 transition-transform relative ${className}`}
         onClick={handleClick}
     >
         { card.flipped ? <img

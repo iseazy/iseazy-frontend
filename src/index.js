@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
 import './index.css';
 import "./unstyle.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Modal from "react-modal"
+import store from "./store"
 
 Modal.setAppElement('#root')
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );

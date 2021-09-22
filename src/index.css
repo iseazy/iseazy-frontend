@@ -40,6 +40,10 @@ body {
 }
 
 .rounded-lg {
+    border-radius: 20px;
+}
+
+.rounded-xl {
     border-radius: 35px;
 }
 
@@ -49,6 +53,10 @@ body {
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+.fixed {
+    position: fixed;
 }
 
 .relative {
@@ -83,6 +91,14 @@ body {
     justify-content: center;
 }
 
+.w-100 {
+    width: 100%;
+}
+
+.max-w-lg {
+    max-width: 500px;
+}
+
 .max-w-xl {
     max-width: 780px;
 }
@@ -97,6 +113,10 @@ body {
 
 .bg-gray {
     background-color: #E7E8E8;
+}
+
+.bg-translucent {
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .bg-gradient {
@@ -208,6 +228,11 @@ body {
 .py-4 {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.py-5 {
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
 @media (min-width: 800px) {

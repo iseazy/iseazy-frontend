@@ -1,10 +1,16 @@
+import { useDispatch } from "react-redux"
+
+import { start } from "../store"
+
 import BigButton from "./BigButton"
 import MemoryLogo from "./MemoryLogo"
 
-export default function MenuScreen({ onStart }) {
+export default function MenuScreen() {
+    const dispatch = useDispatch()
+
     const handleStartClick = (event) => {
         event.preventDefault()
-        onStart()
+        dispatch(start())
     }
 
     return <div className="min-h-screen bg-gradient flex items-center justify-center">
