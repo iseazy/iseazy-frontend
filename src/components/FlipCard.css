@@ -1,0 +1,48 @@
+.flip-card {
+    position: relative;
+    display: block;
+    box-shadow: var(--shadow-sm);
+    background-color: var(--color-white);
+    border-radius: var(--radius-1);
+    overflow: hidden;
+    user-select: none;
+
+    transition-property: transform;
+    transition-timing-function: var(--transition-timing-function);
+    transition-duration: var(--transition-duration);
+}
+
+.flip-card:hover {
+    transform: scale(1.1);
+}
+
+.flip-card:focus {
+    transform: scale(1.1);
+}
+
+.flip-card__image {
+    display: block;
+}
+
+.flip-card__bg-image {
+    display: block;
+    opacity: 0.2;
+}
+
+.flip-card__overlay {
+    position: absolute;
+
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-3);
+
+    color: var(--color-black);
+}

@@ -1,0 +1,23 @@
+.big-button {
+    color: var(--color-white);
+    background-color: var(--color-pink);
+
+    transition-property: background-color;
+    transition-timing-function: var(--transition-timing-function);
+    transition-duration: var(--transition-duration);
+
+    font-size: var(--font-size-1);
+    line-height: var(--line-height-1);
+
+    border-radius: var(--radius-3);
+
+    padding: var(--spacing-4) var(--spacing-6);
+}
+
+.big-button:hover {
+    background-color: var(--color-dark-pink);
+}
+
+.big-button:focus {
+    background-color: var(--color-dark-pink);
+}

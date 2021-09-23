@@ -1,0 +1,13 @@
+.memory-logo {
+    width: 130px;
+    height: 130px;
+
+    box-shadow: var(--shadow-sm);
+    border-radius: 9999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--color-gray);
+}

@@ -1,10 +1,9 @@
+import "./MemoryLogo.css"
+
 import logo from "../images/me-memory-logo.svg"
 
 export default function MemoryLogo() {
-    return <div
-        className="shadow rounded-full flex items-center justify-center bg-gray"
-        style={{ width:"130px", height:"130px" }}
-    >
+    return <div className="memory-logo">
         <img
             src={logo}
             alt="MeMemory Logo"

@@ -7,237 +7,42 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.shadow {
-    box-shadow: 0px 4px 7px #00000040;
-}
+:root {
+    --color-white: #FFFFFF;
+    --color-black: #333333;
+    --color-pink: #E50A4F;
+    --color-dark-pink: #B5083F;
+    --color-gray: #E7E8E8;
 
-.shadow-lg {
-    box-shadow: 0px 12px 30px #00000099;
-}
+    --spacing-1: 10px;
+    --spacing-2: 15px;
+    --spacing-3: 18px;
+    --spacing-4: 20px;
+    --spacing-5: 32px;
+    --spacing-6: 60px;
+    --spacing-7: 79px;
 
-.flex {
-    display: flex;
-}
+    --font-size-1: 26px;
+    --font-size-2: 32px;
+    --font-size-3: 40px;
+    --font-size-4: 60px;
+    --font-size-5: 70px;
 
-.flex-col {
-    flex-direction: column;
-}
+    --line-height-1: 30px;
+    --line-height-2: 38px;
+    --line-height-3: 47px;
+    --line-height-4: 71px;
+    --line-height-5: 72px;
 
-.block {
-    display: block;
-}
+    --radius-1: 10px;
+    --radius-2: 20px;
+    --radius-3: 35px;
 
-.flex-shrink-0 {
-    flex-shrink: 0;
-}
+    --transition-duration: 150ms;
+    --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-.flex-wrap {
-    flex-wrap: wrap;
-}
+    --shadow-sm: 0px 4px 7px #00000040;
+    --shadow-lg: 0px 12px 30px #00000099;
 
-.rounded {
-    border-radius: 10px;
-}
-
-.rounded-lg {
-    border-radius: 20px;
-}
-
-.rounded-xl {
-    border-radius: 35px;
-}
-
-.overflow-hidden {
-    overflow: hidden;
-}
-
-.cursor-pointer {
-    cursor: pointer;
-}
-
-.fixed {
-    position: fixed;
-}
-
-.relative {
-    position: relative;
-}
-
-.absolute {
-    position: absolute;
-}
-
-.items-center {
-    align-items: center;
-}
-
-.inset-0 {
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    top: 0px;
-}
-
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.ml-auto {
-    margin-left: auto;
-}
-
-.justify-center {
-    justify-content: center;
-}
-
-.w-100 {
-    width: 100%;
-}
-
-.max-w-lg {
-    max-width: 500px;
-}
-
-.max-w-xl {
-    max-width: 780px;
-}
-
-.min-h-screen {
-    min-height: 100vh;
-}
-
-.bg-white {
-    background-color: #FFFFFF;
-}
-
-.bg-gray {
-    background-color: #E7E8E8;
-}
-
-.bg-translucent {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.bg-gradient {
-    background: linear-gradient(180deg, rgb(244, 244, 244) 0%, rgb(231, 232, 232) 100%);
-}
-
-.rounded-full {
-    border-radius: 9999px;
-}
-
-.select-none {
-    user-select: none;
-}
-
-.text-white {
-    color: white;
-}
-
-.text-black {
-    color: #333333;
-}
-
-.text-lg {
-    font-size: 26px;
-    line-height: 30px;
-}
-
-.text-xl {
-    font-size: 32px;
-    line-height: 38px;
-}
-
-.text-2xl {
-    font-size: 40px;
-    line-height: 47px;
-}
-
-.text-3xl {
-    font-size: 60px;
-    line-height: 71px;
-}
-
-.text-4xl {
-    font-size: 71px;
-    line-height: 72px;
-}
-
-.bg-pink {
-    background-color: #E50A4F;
-}
-
-.hover\:bg-pink-light:hover {
-    background-color: #B5083F;
-}
-
-.focus\:bg-pink-light:focus {
-    background-color: #B5083F;
-}
-
-.transition-colors {
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-}
-
-.transition-transform {
-    transition-property: transform;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-}
-
-.hover\:scale-110:hover {
-    transform: scale(1.1);
-}
-
-.focus\:scale-110:focus {
-    transform: scale(1.1);
-}
-
-.opacity-20 {
-    opacity: 0.2;
-}
-
-.ml-1 {
-    margin-left: 10px;
-}
-
-.p-2 {
-    padding: 15px;
-}
-
-.mt-3 {
-    margin-top: 18px;
-}
-
-.mt-5 {
-    margin-top: 32px;
-}
-
-.mt-7 {
-    margin-top: 79px;
-}
-
-.px-6 {
-    padding-left: 60px;
-    padding-right: 60px;
-}
-
-.py-4 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.py-5 {
-    padding-top: 32px;
-    padding-bottom: 32px;
-}
-
-@media (min-width: 800px) {
-    .md\:py-7 {
-        padding-top: 79px;
-        padding-bottom: 79px;
-    }
+    --bg-gradient: linear-gradient(180deg, rgb(244, 244, 244) 0%, rgb(231, 232, 232) 100%);
 }

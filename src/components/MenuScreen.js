@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux"
 
+import "./MenuScreen.css"
+
 import { start } from "../store"
 
 import BigButton from "./BigButton"
@@ -13,13 +15,13 @@ export default function MenuScreen() {
         dispatch(start())
     }
 
-    return <div className="min-h-screen bg-gradient flex items-center justify-center">
-        <header className="flex flex-col items-center">
+    return <div className="menu-screen">
+        <header className="menu-screen__header">
             <MemoryLogo />
-            <h1 className="mt-3 text-4xl text-black">
+            <h1 className="menu-screen__heading">
                 MeMemory
             </h1>
-            <div className="mt-7">
+            <div className="menu-screen__btn-container">
                 <BigButton onClick={handleStartClick}>
                     Comenzar
                 </BigButton>

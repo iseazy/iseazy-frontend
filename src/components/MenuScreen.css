@@ -1,0 +1,26 @@
+.menu-screen {
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-screen__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-screen__heading {
+    margin-top: var(--spacing-3);
+
+    font-size: var(--font-size-5);
+    line-height: var(--line-height-5);
+
+    color: var(--color-black);
+}
+
+.menu-screen__btn-container {
+    margin-top: var(--spacing-7);
+}

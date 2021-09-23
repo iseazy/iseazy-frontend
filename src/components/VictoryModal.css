@@ -1,0 +1,48 @@
+.victory-modal {
+    box-shadow: var(--shadow-lg);
+    background-color: var(--color-white);
+    border-radius: var(--radius-2);
+    max-width: 500px;
+    width: 100%;
+    padding: var(--spacing-5) var(--spacing-6);
+}
+
+.victory-modal__overlay {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.victory-modal__container {
+    display: flex;
+    align-items: center;
+}
+
+.victory-modal__paragraph {
+    font-size: var(--font-size-2);
+    line-height: var(--font-size-2);
+    color: var(--color-black);
+}
+
+.victory-modal__icon {
+    margin-left: auto;
+}
+
+.victory-modal__time {
+    font-size: var(--font-size-4);
+    line-height: var(--line-heigh-4);
+    color: var(--color-black);
+    margin-left: var(--spacing-1);
+}
+
+.victory-modal__btn-container {
+    margin-top: var(--spacing-5);
+    display: flex;
+    justify-content: center;
+}

@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 
+import "./GameScreen.css"
+
 import { selectCard } from "../store"
 
 import FlipCard from "./FlipCard"
@@ -17,11 +19,11 @@ export default function GameScreen() {
         dispatch(selectCard(cardId))
     }
 
-    return <div className="min-h-screen bg-gradient">
-        <div className="flex flex-wrap justify-center mx-auto py-4 md:py-7 max-w-xl">
+    return <div className="game-screen">
+        <div className="game-screen__container">
             { cookedCards.map((cookedCard, idx) => <div
                 key={cookedCard.id}
-                className="p-2"
+                className="game-screen__card-wrapper"
             >
                 <FlipCard
                     cookedCard={cookedCard}

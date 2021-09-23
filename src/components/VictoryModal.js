@@ -2,6 +2,8 @@ import Modal from "react-modal"
 import { useSelector, useDispatch } from "react-redux"
 import { DateTime } from "luxon"
 
+import "./VictoryModal.css"
+
 import { start } from "../store"
 
 import BigButton from "./BigButton"
@@ -21,30 +23,30 @@ export default function VictoryModal() {
     const duration = end.diff(startTime)
 
     return <Modal
-        className="shadow-lg bg-white rounded-lg max-w-lg w-100 py-5 px-6"
-        overlayClassName="fixed inset-0 flex items-center justify-center bg-translucent"
+        className="victory-modal"
+        overlayClassName="victory-modal__overlay"
         isOpen
     >
-        <div className="flex items-center">
-            <p className="text-xl text-black">
+        <div className="victory-modal__container">
+            <p className="victory-modal__paragraph">
                 ¡Completado!
             </p>
 
             <img
-                className="ml-auto"
+                className="victory-modal__icon"
                 src={clock}
                 alt=""
             />
 
             <time
                 dateTime={duration.toISO()}
-                className="text-3xl text-black ml-1"
+                className="victory-modal__time"
             >
                 { duration.toFormat("m:ss") }
             </time>
         </div>
 
-        <div className="mt-5 flex justify-center">
+        <div className="victory-modal__btn-container">
             <BigButton onClick={handlePlayAgainClick}>
                 Jugar otra vez
             </BigButton>
