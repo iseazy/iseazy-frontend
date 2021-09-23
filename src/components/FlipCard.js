@@ -1,7 +1,9 @@
+import PropTypes from "prop-types"
+
 import cardBg from "../images/card-bg.svg"
 
 export default function FlipCard({
-    card,
+    cookedCard,
     num,
     onClick,
     className,
@@ -15,11 +17,11 @@ export default function FlipCard({
         className={`block shadow bg-white rounded overflow-hidden select-none hover:scale-110 focus:scale-110 transition-transform relative ${className}`}
         onClick={handleClick}
     >
-        { card.flipped ? <img
+        { cookedCard.flipped ? <img
             className="block"
             width="100"
             height="100"
-            src={card.img}
+            src={cookedCard.img}
             alt=""
         /> : <>
             <img
@@ -34,4 +36,11 @@ export default function FlipCard({
             </div>
         </> }
     </button>
+}
+
+FlipCard.propTypes = {
+    cookedCard: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        img: PropTypes.string.isRequired,
+    }).isRequired,
 }

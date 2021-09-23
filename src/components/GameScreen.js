@@ -4,7 +4,7 @@ import { selectCard } from "../store"
 
 import FlipCard from "./FlipCard"
 
-export default function GameScreen({ onSelectCard }) {
+export default function GameScreen() {
     const dispatch = useDispatch()
 
     const cookedCards = useSelector(({ cards, flippedIds }) => {
@@ -19,14 +19,14 @@ export default function GameScreen({ onSelectCard }) {
 
     return <div className="min-h-screen bg-gradient">
         <div className="flex flex-wrap justify-center mx-auto py-4 md:py-7 max-w-xl">
-            { cookedCards.map((card, idx) => <div
-                key={card.id}
+            { cookedCards.map((cookedCard, idx) => <div
+                key={cookedCard.id}
                 className="p-2"
             >
                 <FlipCard
-                    card={card}
+                    cookedCard={cookedCard}
                     num={idx+1}
-                    onClick={() => handleSelectCard(card.id)}
+                    onClick={() => handleSelectCard(cookedCard.id)}
                 />
             </div>)}
         </div>
