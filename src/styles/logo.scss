@@ -1,0 +1,11 @@
+.big-logo {
+    width: $icon-size-big;
+    height: $icon-size-big;
+    border-radius: map-get($border-radius, "rounded");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E7E8E8 0% 0% no-repeat padding-box;
+    box-shadow: map-get($box-shadow, "default");;
+    opacity: 1;
+}

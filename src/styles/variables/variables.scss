@@ -1,0 +1,36 @@
+@import "../colors/colors.scss";
+
+$font-size: (
+    "1": 10px, 
+    "2": 15px,
+    "3": 26px,
+    "4": 30px,
+    "5": 50px,
+    "6": 60px,
+);
+
+$padding: (
+    "1": 10px, 
+    "2": 20px,
+    "3": 30px,
+    "4": 40px,
+);
+
+$margin: (
+    "1": 15px, 
+    "2": 20px,
+    "3": 30px,
+    "4": 40px,
+);
+
+$border-radius: (
+    "default": 35px, 
+    "rounded": 50%,
+);
+
+$box-shadow: (
+    "default": 0px 3px 6px #00000033, 
+    "success": 0px 0px 15px $success-color,
+);
+
+$icon-size-big: 130px;
