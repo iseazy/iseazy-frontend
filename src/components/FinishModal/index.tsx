@@ -6,6 +6,7 @@ import { startGame } from '../../redux/actions/gameActions';
 import Button from '../Button';
 import Modal from '../Modal';
 import clockIcon from "../../images/clock-icon.svg";
+import { setStart } from '../../services/cards.service';
 
 interface FinishModalProps {}
 
@@ -16,8 +17,11 @@ const FinishModal: React.FC<FinishModalProps> = memo(() => {
         return state.gameReducer.totalGameDate
     });
 
-    const handleResetGame = useCallback(() => {  
-        dispatch(startGame())
+    const handleResetGame = useCallback(() => { 
+        const startDate = new Date();
+        const cards = setStart();
+        
+        dispatch(startGame(startDate, cards))
     }, [dispatch]);
     
     return (

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FinishModal from '../../components/FinishModal';
 import { startGame } from '../../redux/actions/gameActions';
 import { RootState } from '../../redux/reducers';
+import { setStart } from '../../services/cards.service';
 import GameScreen from '../gameScreen';
 import StartScreen from '../startScreen';
 
@@ -15,7 +16,9 @@ const Home: React.FC<HomeProps> = memo(() => {
     })
 
     const handleStart = useCallback(() => {
-        dispatch(startGame())
+        const startDate = new Date();
+        const cards = setStart();
+        dispatch(startGame(startDate, cards))
     }, [dispatch]);
     
     return (

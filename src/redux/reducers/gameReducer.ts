@@ -1,7 +1,7 @@
 import { AnyAction } from "redux";
 import { ICard } from "../../models/card";
 import { FINISHGAME, FLIPPEDCARD, SOLVEDMATCH, STARTGAME } from "../../models/constants";
-import { setCardsMatch, setStart } from "../../services/cards.service";
+import { setCardsMatch } from "../../services/cards.service";
 
 const initialState = {
   isRunning: false,
@@ -17,12 +17,12 @@ const gameReducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case STARTGAME:
         const currentState = {...state};
-        currentState.cards = setStart();
+        currentState.cards = [...action.cards];
         currentState.completedCards = [];
         currentState.flippedCards = [];
       return {
         ...currentState,
-        startGameDate: new Date(),
+        startGameDate: action.startDate,
         isFinished: false,
         isRunning: true
       };

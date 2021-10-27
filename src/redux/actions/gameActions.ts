@@ -1,8 +1,11 @@
+import { ICard } from "../../models/card";
 import {STARTGAME, SOLVEDMATCH, FINISHGAME, FLIPPEDCARD} from "../../models/constants";
 
-export function startGame(){
+export function startGame(startDate: Date, cards: ICard[]){
   return {
-    type: STARTGAME
+    type: STARTGAME,
+    startDate: startDate,
+    cards: cards
   };
 };
 
