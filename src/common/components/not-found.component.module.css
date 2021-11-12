@@ -1,0 +1,14 @@
+.not-found {
+  font-size: 60px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  margin: 40px 0 0;
+}
+
+
+.link {
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}

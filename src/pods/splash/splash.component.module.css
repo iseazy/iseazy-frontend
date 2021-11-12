@@ -1,0 +1,17 @@
+.title {
+  font-size: 70px;
+  font-weight: bold;
+  letter-spacing: -0.35px;
+}
+
+.logo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E7E8E8 0 0 no-repeat padding-box;
+  box-shadow: 0 3px 6px #00000033;
+  opacity: 1;
+}
