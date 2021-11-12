@@ -1,0 +1,22 @@
+.card-outline {
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  .card {
+    width: 150px;
+    height: 150px;
+    background: url('./card.svg');
+
+    .card-identifier {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      font-family: Roboto, sans-serif;
+      font-weight: bold;
+      color: #333333;
+      height: 100%;
+    }
+  }
+}

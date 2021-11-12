@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { CenteredLayout } from 'layout';
 import { CardGame } from "../pods/card-game/card-game.component";
+import { CardGameLayout } from "../layout/card-game.layout";
 
 export const CardGameScene = () => {
-  return (
-    <CenteredLayout>
-      <CardGame/>
-    </CenteredLayout>
-  )
+	return (
+		<CardGameLayout>
+			<CardGame/>
+		</CardGameLayout>
+	)
 }

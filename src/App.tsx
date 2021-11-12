@@ -2,7 +2,7 @@ import * as React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { SplashScene } from "./scenes";
 import { CardGameScene } from "./scenes/card-game.scene";
-import { NotFound } from "./common/components/not-found.component";
+import { NotFound } from "./common/components/not-found/not-found.component";
 
 
 const App: React.FC = () => {

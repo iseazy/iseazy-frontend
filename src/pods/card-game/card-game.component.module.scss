@@ -1,0 +1,12 @@
+.card-array {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5%;
+  margin-left: 5%;
+
+  .card-spacing {
+    margin: 30px;
+  }
+}

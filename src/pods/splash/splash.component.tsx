@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Button } from "../../common/components/button.component";
+import { Button } from "../../common/components/button/button.component";
 import { useNavigate } from "react-router-dom";
 import { appBaseRoutes } from "../../core";
-import classes from "./splash.component.module.css";
+import classes from "./splash.component.module.scss";
 
 import { ReactComponent as LogoSvg } from './logo.svg';
 

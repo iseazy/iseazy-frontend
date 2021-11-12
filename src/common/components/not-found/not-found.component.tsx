@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from "react-router-dom";
 
 import classes from './not-found.component.module.css';
-import { appBaseRoutes } from "../../core";
+import { appBaseRoutes } from "../../../core";
 
 export const NotFound: React.FC = () => {
 	return (
