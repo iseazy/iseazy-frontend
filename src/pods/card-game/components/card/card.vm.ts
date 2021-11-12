@@ -1,8 +1,7 @@
 export interface CardVm {
 	id: string;
-	name: string;
 	image: string;
-	isFlipped: boolean;
+	imageIsUp: boolean;
 	isMatched: boolean;
 	position: number;
 }
