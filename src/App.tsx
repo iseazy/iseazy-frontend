@@ -3,18 +3,22 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { SplashScene } from "./scenes";
 import { CardGameScene } from "./scenes/card-game.scene";
 import { NotFound } from "./common/components/not-found/not-found.component";
+import { store } from "./core/store";
+import { Provider } from "react-redux";
 
 
 const App: React.FC = () => {
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<SplashScene/>}/>
-				<Route path="/card-game" element={<CardGameScene/>}/>
-				{/*404 fallback*/}
-				<Route path="*" element={<NotFound/>}/>
-			</Routes>
-		</BrowserRouter>
+		<Provider store={store}>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<SplashScene/>}/>
+					<Route path="/card-game" element={<CardGameScene/>}/>
+					{/*404 fallback*/}
+					<Route path="*" element={<NotFound/>}/>
+				</Routes>
+			</BrowserRouter>
+		</Provider>
 	);
 }
 
