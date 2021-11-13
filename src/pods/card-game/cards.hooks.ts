@@ -2,25 +2,25 @@ import React from 'react';
 import * as api from './api';
 import { CardImgVm } from "./components/card/card.vm";
 import { mapImageItemApiListToCardImgVmList, } from "./card-game.mapper";
+import { useDispatch } from "react-redux";
+import { loadImages } from "./reducer-slice/card-game.slice";
 
-interface Props {
-	onLoadImages: (images: Array<CardImgVm>) => void;
-}
+export const useLoad = () => {
+	const dispatch = useDispatch();
 
-export const useLoad = (props: Props) => {
-	const loadImages = React.useCallback(async () => {
+	const onLoad = React.useCallback(() => {
 		try {
 			let vmCardImgList: Array<CardImgVm> = [];
 			const apiImages = api.getImageApiList();
 			vmCardImgList = mapImageItemApiListToCardImgVmList(apiImages);
-			props.onLoadImages(vmCardImgList);
+			dispatch(loadImages(vmCardImgList));
 		} catch (error) {
 			console.log('error: ', error)
 		}
-	}, [props]);
+	}, [dispatch]);
 
 	return {
-		onLoad: loadImages,
+		onLoad,
 	};
 };
 

@@ -8,7 +8,7 @@ interface Props {
 	onClickCard: (card: CardVm) => void;
 }
 
-export const Grid: React.FC<Props> = (props) => {
+export const Grid: React.FC<Props> = React.memo((props) => {
 	const {
 		cards,
 		onClickCard
@@ -16,16 +16,14 @@ export const Grid: React.FC<Props> = (props) => {
 
 	return (
 		<section className={classes["section"]}>
-			<div>
-				<div id={'cards-items'} className={classes["grid-container"]}>
-					{
-						cards.map((card) => <Card
-							key={card.id}
-							onClick={onClickCard}
-							card={card}/>)
-					}
-				</div>
+			<div id={'cards-items'} className={classes["grid-container"]}>
+				{
+					cards.map((card) => <Card
+						key={card.id}
+						onClick={onClickCard}
+						card={card}/>)
+				}
 			</div>
 		</section>
 	);
-};
+});
