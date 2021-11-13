@@ -7,10 +7,11 @@ import { ReactComponent as Clock } from './clock.svg';
 interface Props {
 	isOpen: boolean,
 	onHide: () => void,
+	duration: string,
 }
 
 export const GameOverDialog: React.FC<Props> = (props) => {
-	const {isOpen, onHide} = props;
+	const {isOpen, onHide, duration} = props;
 
 	return (
 		isOpen ? ReactDOM.createPortal(
@@ -20,7 +21,7 @@ export const GameOverDialog: React.FC<Props> = (props) => {
 						<h1>¡Completado!</h1>
 						<div className={classes["clock-and-time"]}>
 							<Clock/>
-							<label>1:27</label>
+							<label>{duration}</label>
 						</div>
 					</div>
 					<div className={classes["dialog-action"]}>

@@ -7,8 +7,11 @@ export const CardGameLayout: React.FC = (props) => {
 				minHeight: '100%',
 				boxSizing: 'border-box',
 				background: "transparent linear-gradient(180deg, #F4F4F4 0%, #E7E8E8 100%) 0% 0% no-repeat padding-box",
-				alignItems: "center",
-				padding: "5%"
+				display: "flex",
+				flexDirection: "column",
+				justifyContent: "center",
+				paddingLeft: '5%',
+				paddingRight: '5%'
 			}}
 		>
 			{props.children}

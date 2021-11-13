@@ -2,20 +2,12 @@ import { CardImgVm, CardVm } from "./components/card/card.vm";
 
 export interface CardGameVm {
 	cards: CardVm[];
-	currentNumberOfTrials: number;
-	numberOfTrialsRecord: number
-	gameIsOver: boolean;
-	finishTime: number;
+	startTime: number;
 	imageList: Array<CardImgVm>;
-	currentComparingCard: CardVm;
 }
 
 export const createDefaultCardGameVm = (): CardGameVm => ({
 	cards: [],
-	gameIsOver: false,
-	finishTime: -1,
-	currentNumberOfTrials: 0,
-	numberOfTrialsRecord: 0,
+	startTime: -1,
 	imageList: [],
-	currentComparingCard: null,
 });

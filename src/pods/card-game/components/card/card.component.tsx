@@ -3,15 +3,16 @@ import classes from "./card.component.module.scss"
 import { CardVm } from "./card.vm";
 
 interface Props {
-	card?: CardVm;
-	onClick?: (card: CardVm) => void;
+	card: CardVm;
+	onClick: (card: CardVm) => void
+	position: number
 }
-
 
 export const Card: React.FC<Props> = React.memo((props) => {
 	const {
 		card,
-		onClick
+		onClick,
+		position,
 	} = props;
 
 	const handleClick = () => {
@@ -23,10 +24,10 @@ export const Card: React.FC<Props> = React.memo((props) => {
 	return (
 		<div onClick={handleClick} className={cardClassName}>
 			<div className={classes["card-flipped"]}>
-				<img alt={`flipped ${card.position}`} src={`/images/${card.image.src}.png`}/>
+				<img alt={`flipped ${position}`} src={`/images/${card.image.src}.png`}/>
 			</div>
 			<div className={classes["card-not-flipped"]}>
-				<label className={classes["card-identifier"]}>{card.position}</label>
+				<label className={classes["card-identifier"]}>{position}</label>
 			</div>
 		</div>
 	);

@@ -3,7 +3,6 @@ export interface CardVm {
 	image: CardImgVm;
 	imageIsUp: boolean;
 	isMatched: boolean;
-	position: number;
 }
 
 export interface CardImgVm {
@@ -25,5 +24,4 @@ export const createInitialCardVm = (): CardVm => ({
 	imageIsUp: false,
 	isMatched: false,
 	image: null,
-	position: 0,
 });
