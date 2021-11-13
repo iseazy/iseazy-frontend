@@ -4,7 +4,7 @@ export interface CardGameVm {
 	cards: CardVm[];
 	currentNumberOfTrials: number;
 	numberOfTrialsRecord: number
-	isGameOver: boolean;
+	gameIsOver: boolean;
 	finishTime: number;
 	imageList: Array<CardImgVm>;
 	currentComparingCard: CardVm;
@@ -12,7 +12,7 @@ export interface CardGameVm {
 
 export const createDefaultCardGameVm = (): CardGameVm => ({
 	cards: [],
-	isGameOver: false,
+	gameIsOver: false,
 	finishTime: -1,
 	currentNumberOfTrials: 0,
 	numberOfTrialsRecord: 0,

@@ -19,7 +19,7 @@ export const cardGameSlice = createSlice({
 		},
 		resetGame: (state) => {
 			state.currentNumberOfTrials = 0;
-			state.isGameOver = true;
+			state.gameIsOver = true;
 			state.finishTime = Date.now();
 			state.cards = createCardsListFromCardImgVmList(state.imageList);
 		},
