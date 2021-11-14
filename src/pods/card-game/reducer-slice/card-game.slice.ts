@@ -1,8 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {CardGameVm, createDefaultCardGameVm} from "../card-game.vm";
 import {createCardsListFromCardImgVmList} from "../card-game.mapper";
-import {CardImgVm, CardVm} from "../components/card/card.vm";
-import {getCurrentDate} from "../../../common/utils";
+import {CardVm} from "../components/card/card.vm";
 
 export type CardGameState = CardGameVm;
 
@@ -14,14 +13,12 @@ export const cardGameSlice = createSlice({
     name: 'cardGame',
     initialState: defaultCardGameState,
     reducers: {
-        loadImages: (state, action: PayloadAction<Array<CardImgVm>>) => {
-            state.imageList = action.payload;
-            state.cards = createCardsListFromCardImgVmList(action.payload)
-            state.startTime = getCurrentDate();
+        initGame: (state, action: PayloadAction<CardGameVm>) => {
+            return action.payload;
         },
-        resetGame: (state) => {
-            state.startTime = getCurrentDate();
+        resetGame: (state, action: PayloadAction<number>) => {
             state.cards = createCardsListFromCardImgVmList(state.imageList);
+            state.startTime = action.payload;
         },
         flipUpCard: (state, action: PayloadAction<CardVm>) => {
             const facedUpCards = getFacedUpCardsNotMatched(state.cards, action.payload);
@@ -65,7 +62,7 @@ function areAllCardsEqual(cards: Array<CardVm>) {
     return cards.every(c => c.image.id === comparingCard.image.id);
 }
 
-export const {loadImages, resetGame, flipUpCard} = cardGameSlice.actions
+export const {initGame, resetGame, flipUpCard} = cardGameSlice.actions
 
 
 export const selectCardGame = (state) => state.cardGame;

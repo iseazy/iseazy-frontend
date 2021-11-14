@@ -6,14 +6,12 @@ interface Props {
 }
 
 export const Button: React.FC<Props> = memo((props) => {
+	const {children, onClick} = props;
+
 	return (
-		<button data-testid="custom-button"
-				onClick={props.onClick}
+		<button onClick={onClick}
 				className={classes.button}>
-			{props.children}
+			{children}
 		</button>
 	);
 });
-
-
-

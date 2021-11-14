@@ -22,7 +22,7 @@ export const CardGame: React.FC = () => {
 	}, [dispatch]);
 
 	const handleCloseDialog = React.useCallback(() => {
-		dispatch(resetGame())
+		dispatch(resetGame(Date.now()))
 	}, [dispatch]);
 
 	return (
@@ -34,6 +34,5 @@ export const CardGame: React.FC = () => {
 				onHide={handleCloseDialog}
 			/>
 		</>
-
 	);
 }

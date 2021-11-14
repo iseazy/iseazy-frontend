@@ -21,7 +21,7 @@ export const GameOverDialog: React.FC<Props> = (props) => {
 						<h1>¡Completado!</h1>
 						<div className={classes["clock-and-time"]}>
 							<Clock/>
-							<label>{duration}</label>
+							<label aria-label="game-duration-label">{duration}</label>
 						</div>
 					</div>
 					<div className={classes["dialog-action"]}>

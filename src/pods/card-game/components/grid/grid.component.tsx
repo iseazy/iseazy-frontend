@@ -16,7 +16,7 @@ export const Grid: React.FC<Props> = (props) => {
 
 	return (
 		<section className={classes["section"]}>
-			<div id={'cards-items'} className={classes["grid-container"]}>
+			<div className={classes["grid-container"]}>
 				{
 					cards.map((card, index) => <Card
 						key={card.id}

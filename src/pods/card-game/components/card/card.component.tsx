@@ -27,7 +27,7 @@ export const Card: React.FC<Props> = React.memo((props) => {
 				<img alt={`flipped ${position}`} src={`/images/${card.image.src}.png`}/>
 			</div>
 			<div className={classes["card-not-flipped"]}>
-				<label className={classes["card-identifier"]}>{position}</label>
+				<label className={classes["card-identifier"]} aria-label="card-position-label">{position}</label>
 			</div>
 		</div>
 	);
