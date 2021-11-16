@@ -9,15 +9,18 @@ import { ReactComponent as LogoSvg } from './logo.svg';
 
 export const Splash: React.FC = () => {
 	let navigate = useNavigate();
+
+	const handleClick = React.useCallback(() => {
+		navigate(appBaseRoutes.cardGame)
+	}, [navigate]);
+
 	return (
 		<>
 			<div className={classes.logo}>
 				<LogoSvg/>
 			</div>
 			<h1 className={classes.title}>MeMemory</h1>
-			<Button onClick={() => {
-				navigate(appBaseRoutes.cardGame)
-			}}>Comenzar</Button>
+			<Button onClick={handleClick}>Comenzar</Button>
 		</>
 	);
 }
