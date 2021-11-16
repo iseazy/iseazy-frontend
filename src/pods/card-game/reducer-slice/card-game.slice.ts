@@ -2,6 +2,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {CardGameVm, createDefaultCardGameVm} from "../card-game.vm";
 import {createCardsListFromCardImgVmList} from "../card-game.mapper";
 import {CardVm} from "../components/card/card.vm";
+import {RootState} from "../../../core/store";
 
 export type CardGameState = CardGameVm;
 
@@ -65,7 +66,7 @@ function areAllCardsEqual(cards: Array<CardVm>) {
 export const {initGame, resetGame, flipUpCard} = cardGameSlice.actions
 
 
-export const selectCardGame = (state) => state.cardGame;
+export const selectCardGame = (state: RootState): CardGameVm => state.cardGame;
 
 
 export default cardGameSlice.reducer
