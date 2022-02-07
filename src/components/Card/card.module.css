@@ -2,11 +2,13 @@
   list-style: none;
   background-color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .card {
   height: 100px;
   width: 100px;
+  border-radius: 10px;
 }
 
 .faceDown {

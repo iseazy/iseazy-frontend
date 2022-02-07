@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CardComponent from '../Card/Card'
 import styles from './game.module.css'
+import { v4 as uuid } from 'uuid'
+import fisherYatesShuffle from '../../lib/helpers/fisherYatesShuffle'
 
 const CardTypes = [
   'card1',
@@ -15,13 +17,13 @@ const CardTypes = [
 ]
 
 function DeckFactory() {
-  return CardTypes.map((type) => [new Card(type), new Card(type)])
-    .flat()
-    .sort((a, b) => a.id - b.id)
+  return fisherYatesShuffle(
+    CardTypes.map((type) => [new Card(type), new Card(type)]).flat(),
+  )
 }
 
 class Card {
-  id = Math.floor(Math.random() * 100000 + 1)
+  id = uuid()
   isFaceUp = false
   type
 
@@ -30,15 +32,74 @@ class Card {
   }
 }
 
-const initialState = () => ({
-  cards: DeckFactory(),
-})
+const initialState = () => {
+  return {
+    selectedCardIds: [],
+    cards: DeckFactory(),
+  }
+}
+
+const isGameFinished = (cards) => cards.every((card) => card.isFaceUp)
+
+const isEqualType = (card1, card2) => card1.type === card2.type
+
+const calculateStatus = (state) => {
+  if (isGameFinished(state.cards)) return 'finished'
+  const selectedCards = state.cards.filter((card) =>
+    state.selectedCardIds.includes(card.id),
+  )
+  if (selectedCards.length < 2) return 'selecting'
+  if (isEqualType(selectedCards[0], selectedCards[1])) return 'match'
+  return 'unmatch'
+}
 
 function Game() {
-  const [state] = useState(initialState())
+  const [state, setState] = useState(initialState())
+  // derived state
+  const status = calculateStatus(state)
+
+  useEffect(() => {
+    if (status !== 'unmatch') return
+    const timer = setTimeout(() => {
+      setState((state) => {
+        return {
+          selectedCardIds: [],
+          cards: state.cards.map((card) => {
+            if (state.selectedCardIds.includes(card.id)) {
+              return {
+                ...card,
+                isFaceUp: false,
+              }
+            }
+            return card
+          }),
+        }
+      })
+    }, 900)
+    return () => clearTimeout(timer)
+  }, [status])
 
   const handleClick = (id) => {
-    console.log(`card  ${id}`)
+    if (status === 'unmatch') return
+    const selectedCard = state.cards.find((card) => card.id === id)
+    if (selectedCard.isFaceUp) return
+
+    setState((currentState) => {
+      return {
+        selectedCardIds:
+          currentState.selectedCardIds.length < 2
+            ? [...currentState.selectedCardIds, id]
+            : [id],
+        cards: currentState.cards.map((card) => {
+          if (card.id === id)
+            return {
+              ...selectedCard,
+              isFaceUp: true,
+            }
+          return card
+        }),
+      }
+    })
   }
 
   return (
