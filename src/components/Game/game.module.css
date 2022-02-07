@@ -1,6 +1,22 @@
 .cardList {
-  list-style: none;
   display: grid;
-  grid-template-columns: 150px 150px 150px;
-  grid-template-rows: auto;
+  justify-content: center;
+  grid-gap: 20px;
+  margin-top: 30px;
+  padding: 0;
+  grid-template-columns: auto;
+}
+
+@media (min-width: 350px) {
+  .cardList {
+    grid-template-columns: repeat(3, min-content);
+  }
+}
+
+@media (min-width: 720px) {
+  .cardList {
+    margin: 120px 0;
+    grid-gap: 30px;
+    grid-template-columns: repeat(6, min-content);
+  }
 }
