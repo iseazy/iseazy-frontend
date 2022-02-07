@@ -1,0 +1,8 @@
+.card {
+  height: 200px;
+  width: 160px;
+  border-radius: 5px;
+  background-image: url('../../assets/cards/facedown-card.svg');
+  background-size: cover;
+  list-style: none;
+}
