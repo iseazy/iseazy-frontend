@@ -1,11 +1,11 @@
 import React from 'react'
 import useMemory from '../../../domain/hooks/useMemory'
 import Card from '../Card/Card'
-import styles from './game.module.css'
+import styles from './memory.module.css'
 import Modal from '../../Modal/Modal'
 import RestartModalBody from '../RestartModal/RestartModal'
 
-function Game() {
+function Memory() {
   const { status, cards, selectCard, restartGame } = useMemory()
 
   const handleClick = (id) => {
@@ -35,4 +35,4 @@ function Game() {
   )
 }
 
-export default Game
+export default Memory
