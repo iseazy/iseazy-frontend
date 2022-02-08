@@ -21,18 +21,3 @@
   font-size: 70px;
   margin: 18px 0;
 }
-
-.startButton {
-  background: #e80a4f 0% 0% no-repeat padding-box;
-  border-radius: 35px;
-  border: none;
-  padding: 20px 60px;
-  color: white;
-  font-size: 26px;
-  font-weight: bold;
-  margin-top: 60px;
-}
-.startButton:hover {
-  cursor: pointer;
-  background: #c00641;
-}

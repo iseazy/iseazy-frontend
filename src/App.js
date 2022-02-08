@@ -1,6 +1,6 @@
 import React from 'react'
-import Welcome from './components/Welcome/Welcome'
-import Game from './components/Game/Game'
+import Welcome from './components/domain/Welcome/Welcome'
+import Game from './components/domain/Game/Game'
 
 function App() {
   const [screen, setScreen] = React.useState('welcome')

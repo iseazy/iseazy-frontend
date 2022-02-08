@@ -1,0 +1,53 @@
+.cardWrapper {
+  list-style: none;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card {
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.faceDown {
+  background-image: url('../../../assets/cards/facedown-card.svg');
+  border-radius: 10px;
+}
+
+.position {
+  line-height: 100px;
+  text-align: center;
+  margin: 0;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.card1 {
+  background-image: url('../../../assets/cards/card1.png');
+}
+.card2 {
+  background-image: url('../../../assets/cards/card2.png');
+}
+.card3 {
+  background-image: url('../../../assets/cards/card3.png');
+}
+.card4 {
+  background-image: url('../../../assets/cards/card4.png');
+}
+.card5 {
+  background-image: url('../../../assets/cards/card5.png');
+}
+.card6 {
+  background-image: url('../../../assets/cards/card6.png');
+}
+.card7 {
+  background-image: url('../../../assets/cards/card7.png');
+}
+.card8 {
+  background-image: url('../../../assets/cards/card8.png');
+}
+.card9 {
+  background-image: url('../../../assets/cards/card9.png');
+}

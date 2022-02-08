@@ -39,8 +39,8 @@ function useMemory() {
   return {
     status,
     cards: state.cards,
-    restartGame,
     selectCard,
+    restartGame,
   }
 }
 

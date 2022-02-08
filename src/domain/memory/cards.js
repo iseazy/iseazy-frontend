@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid'
-import fisherYatesShuffle from '../../lib/helpers/fisherYatesShuffle'
+import shuffle from '../../lib/helpers/shuffle'
 
 const CardTypes = [
   'card1',
@@ -24,7 +24,7 @@ class Card {
 }
 
 function CardsFactory() {
-  return fisherYatesShuffle(
+  return shuffle(
     CardTypes.map((type) => [new Card(type), new Card(type)]).flat(),
   )
 }
