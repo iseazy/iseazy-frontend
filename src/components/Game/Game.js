@@ -4,13 +4,14 @@ import Card from '../Card/Card'
 import styles from './game.module.css'
 
 function Game() {
-  const { status, cards, selectCard } = useMemory()
+  const { status, cards, restartGame, selectCard } = useMemory()
 
   const handleClick = (id) => {
     selectCard(id)
   }
 
-  if (status === 'finished') return <p>Juego terminado!</p>
+  if (status === 'finished')
+    return <button onClick={() => restartGame(cards)}>Juego terminado!</button>
 
   return (
     <ul className={styles.cardList}>

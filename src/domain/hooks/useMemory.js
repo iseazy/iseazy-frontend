@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
-import CardsFactory from '../logic/cards'
+import CardsFactory from '../memory/cards'
 import {
   calculateStatus,
   selectCard as select,
   deselectCards,
-} from '../logic/memory'
+  isClickableCard,
+} from '../memory/logic'
 
 const initialState = () => {
   return {
@@ -27,16 +28,18 @@ function useMemory() {
   }, [status])
 
   const selectCard = (id) => {
-    if (status === 'unmatch') return
-    const selectedCard = state.cards.find((card) => card.id === id)
-    if (selectedCard.isFaceUp) return
+    if (isClickableCard(id, status, state.cards))
+      setState((currentState) => select(id, currentState))
+  }
 
-    setState((currentState) => select(id, currentState))
+  const restartGame = () => {
+    setState(initialState())
   }
 
   return {
     status,
     cards: state.cards,
+    restartGame,
     selectCard,
   }
 }

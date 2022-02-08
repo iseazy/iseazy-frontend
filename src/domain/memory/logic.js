@@ -42,4 +42,11 @@ const deselectCards = ({ selectedCardIds, cards }) => {
   }
 }
 
-export { calculateStatus, selectCard, deselectCards }
+const isClickableCard = (id, status, cards) => {
+  if (status === 'unmatch') return false
+  const selectedCard = cards.find((card) => card.id === id)
+  if (selectedCard.isFaceUp) return false
+  return true
+}
+
+export { calculateStatus, selectCard, deselectCards, isClickableCard }
