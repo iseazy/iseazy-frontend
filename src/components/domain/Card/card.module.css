@@ -1,53 +1,53 @@
-.cardWrapper {
+.card {
   list-style: none;
-  background-color: white;
-  border-radius: 10px;
-  cursor: pointer;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
 }
 
-.card {
-  height: 100px;
-  width: 100px;
+.card img {
+  width: 100%;
+  display: block;
+  position: relative;
   border-radius: 10px;
+}
+
+/* face up animation */
+.card .faceUp {
+  transform: rotateY(90deg);
+  transition: all ease-in 0.15s;
+  position: absolute;
+}
+.flipped .faceUp {
+  transform: rotateY(0deg);
+  transition-delay: 0.15s;
+}
+
+/* face down animation */
+.card .faceDown {
+  transition: all ease-in 0.15s;
+  transition-delay: 0.15s;
+}
+.flipped .faceDown {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
 }
 
 .faceDown {
-  background-image: url('../../../assets/cards/facedown-card.svg');
-  border-radius: 10px;
+  cursor: pointer;
+}
+
+.faceDown img {
+  position: absolute;
+  background-color: white;
+  opacity: 0.5;
 }
 
 .position {
   line-height: 100px;
   text-align: center;
-  margin: 0;
   font-size: 40px;
   font-weight: bold;
-}
-
-.card1 {
-  background-image: url('../../../assets/cards/card1.png');
-}
-.card2 {
-  background-image: url('../../../assets/cards/card2.png');
-}
-.card3 {
-  background-image: url('../../../assets/cards/card3.png');
-}
-.card4 {
-  background-image: url('../../../assets/cards/card4.png');
-}
-.card5 {
-  background-image: url('../../../assets/cards/card5.png');
-}
-.card6 {
-  background-image: url('../../../assets/cards/card6.png');
-}
-.card7 {
-  background-image: url('../../../assets/cards/card7.png');
-}
-.card8 {
-  background-image: url('../../../assets/cards/card8.png');
-}
-.card9 {
-  background-image: url('../../../assets/cards/card9.png');
+  position: relative;
 }

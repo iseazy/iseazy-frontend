@@ -15,8 +15,11 @@ function elapsedTime(start: number, end: number) {
     .diff(DateTime.fromMillis(start), ['minutes', 'seconds'])
     .toObject()
 
-  if (minutes === undefined || seconds === undefined)
-    throw new Error('Unexpected undefined minutes or seconds')
+  if (minutes === undefined || seconds === undefined) {
+    throw new Error(
+      'Unexpected undefined minutes or seconds. It should always be a number',
+    )
+  }
 
   return {
     minutes,

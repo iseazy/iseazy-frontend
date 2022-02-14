@@ -14,11 +14,11 @@ function Memory() {
   return (
     <div>
       <ul className={styles.cardList}>
-        {cards.map(({ id, type, isFaceUp }, i) => (
+        {cards.map(({ id, src, isFaceUp }, i) => (
           <Card
             key={id}
             id={id}
-            type={type}
+            src={src}
             isFaceUp={isFaceUp}
             position={i + 1}
             handleClick={handleClick}

@@ -3,7 +3,7 @@ import type { State } from '../hooks/useMemory'
 type Card = State['cards'][number]
 type Status = 'finished' | 'selecting' | 'match' | 'unmatch'
 
-const isEqualType = (card1: Card, card2: Card) => card1.type === card2.type
+const isEqualType = (card1: Card, card2: Card) => card1.src === card2.src
 
 const isGameFinished = (cards: Card[]) => cards.every((card) => card.isFaceUp)
 
@@ -28,7 +28,10 @@ const isLastUnmatchedCard = (cards: Card[]) => {
 
 const getCurrentTimestamp = () => Date.now()
 
-const selectCard = (id: string, { time, selectedCardIds, cards }: State) => {
+const selectCard = (
+  id: string,
+  { time, selectedCardIds, cards }: State,
+): State => {
   return {
     time: {
       start: time.start || getCurrentTimestamp(),
@@ -47,7 +50,7 @@ const selectCard = (id: string, { time, selectedCardIds, cards }: State) => {
   }
 }
 
-const deselectCards = ({ time, selectedCardIds, cards }: State) => {
+const deselectCards = ({ time, selectedCardIds, cards }: State): State => {
   return {
     time,
     selectedCardIds: [],
@@ -63,13 +66,13 @@ const deselectCards = ({ time, selectedCardIds, cards }: State) => {
   }
 }
 
-interface IsClickableCard {
+interface IClickableCard {
   id: string
-  status: ReturnType<typeof calculateStatus>
+  status: Status
   cards: Card[]
 }
 
-const isClickableCard = ({ id, status, cards }: IsClickableCard) => {
+const isClickableCard = ({ id, status, cards }: IClickableCard) => {
   if (status === 'unmatch') return false
   const selectedCard = cards.find((card) => card.id === id)
   if (!selectedCard) throw new Error('Card not found')
