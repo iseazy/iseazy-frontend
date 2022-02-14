@@ -6,7 +6,7 @@ import Modal from '../../Modal/Modal'
 import RestartModalBody from '../RestartModal/RestartModal'
 
 function Memory() {
-  const { status, cards, selectCard, restartGame } = useMemory()
+  const { time, status, cards, selectCard, restartGame } = useMemory()
 
   const handleClick = (id) => {
     selectCard(id)
@@ -28,7 +28,7 @@ function Memory() {
       </ul>
       {status === 'finished' ? (
         <Modal isOpen>
-          <RestartModalBody handleRestart={restartGame} />
+          <RestartModalBody handleRestart={restartGame} time={time} />
         </Modal>
       ) : null}
     </div>

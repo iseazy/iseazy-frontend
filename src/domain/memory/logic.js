@@ -12,8 +12,20 @@ const calculateStatus = ({ selectedCardIds, cards }) => {
   return 'unmatch'
 }
 
-const selectCard = (id, { selectedCardIds, cards }) => {
+const isLastUnmatchedCard = (cards) => {
+  const filteredCards = cards.filter((card) => !card.isFaceUp)
+  if (filteredCards.length === 1) return true
+  return false
+}
+
+const getCurrentTimestamp = () => Date.now()
+
+const selectCard = (id, { time, selectedCardIds, cards }) => {
   return {
+    time: {
+      start: time.start || getCurrentTimestamp(),
+      end: isLastUnmatchedCard(cards) ? getCurrentTimestamp() : null,
+    },
     selectedCardIds:
       selectedCardIds.length < 2 ? [...selectedCardIds, id] : [id],
     cards: cards.map((card) => {
@@ -27,8 +39,9 @@ const selectCard = (id, { selectedCardIds, cards }) => {
   }
 }
 
-const deselectCards = ({ selectedCardIds, cards }) => {
+const deselectCards = ({ time, selectedCardIds, cards }) => {
   return {
+    time,
     selectedCardIds: [],
     cards: cards.map((card) => {
       if (selectedCardIds.includes(card.id)) {

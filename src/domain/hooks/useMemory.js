@@ -9,6 +9,10 @@ import {
 
 const initialState = () => {
   return {
+    time: {
+      start: null,
+      end: null,
+    },
     selectedCardIds: [],
     cards: CardsFactory(),
   }
@@ -37,6 +41,7 @@ function useMemory() {
   }
 
   return {
+    time: state.time,
     status,
     cards: state.cards,
     selectCard,

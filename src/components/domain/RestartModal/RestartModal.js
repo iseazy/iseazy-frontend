@@ -1,13 +1,13 @@
 import styles from './restartModal.module.css'
 import Button from '../../Button/Button'
-import { ReactComponent as Clock } from '../../../assets/icons/clock.svg'
+import Timer from './Timer'
 
-const RestartModal = ({ handleRestart }) => {
+const RestartModal = ({ handleRestart, time }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.info}>
         <h3 className={styles.text}>¡Completado!</h3>
-        <Clock className={styles.clock} />
+        <Timer time={time} />
       </div>
       <div className={styles.buttonWrapper}>
         <Button onClick={handleRestart}>Jugar otra vez</Button>

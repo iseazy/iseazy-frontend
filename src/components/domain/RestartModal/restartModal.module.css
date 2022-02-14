@@ -7,11 +7,16 @@
   align-items: center;
   justify-content: space-around;
 }
+@media (max-width: 720px) {
+  .info {
+    flex-direction: column;
+  }
+}
 
 .text {
   font-size: 32px;
   font-weight: bold;
-  margin: 0;
+  margin: 0 25px;
 }
 
 .buttonWrapper {
