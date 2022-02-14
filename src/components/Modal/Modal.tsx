@@ -1,6 +1,11 @@
 import styles from './modal.module.css'
 
-const Modal = ({ children, isOpen }) => {
+interface IProps {
+  children: React.ReactNode
+  isOpen: boolean
+}
+
+const Modal = ({ children, isOpen }: IProps) => {
   return (
     <div className={`${styles.wrapper} ${isOpen ? '' : styles.hide}`}>
       {children}

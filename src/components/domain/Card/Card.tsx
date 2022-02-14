@@ -1,7 +1,15 @@
 import React from 'react'
 import styles from './card.module.css'
 
-function Card({ id, type, isFaceUp, position, handleClick }) {
+interface IProps {
+  id: string
+  type: string
+  isFaceUp: boolean
+  position: number
+  handleClick: (id: string) => void
+}
+
+function Card({ id, type, isFaceUp, position, handleClick }: IProps) {
   return (
     <li className={styles.cardWrapper}>
       <div

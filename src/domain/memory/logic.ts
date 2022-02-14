@@ -1,10 +1,18 @@
-const isEqualType = (card1, card2) => card1.type === card2.type
+import type { State } from '../hooks/useMemory'
 
-const isGameFinished = (cards) => cards.every((card) => card.isFaceUp)
+type Card = State['cards'][number]
+type Status = 'finished' | 'selecting' | 'match' | 'unmatch'
 
-const calculateStatus = ({ selectedCardIds, cards }) => {
+const isEqualType = (card1: Card, card2: Card) => card1.type === card2.type
+
+const isGameFinished = (cards: Card[]) => cards.every((card) => card.isFaceUp)
+
+const calculateStatus = ({
+  selectedCardIds,
+  cards,
+}: Omit<State, 'time'>): Status => {
   if (isGameFinished(cards)) return 'finished'
-  const selectedCards = cards.filter((card) =>
+  const selectedCards = cards.filter((card: Card) =>
     selectedCardIds.includes(card.id),
   )
   if (selectedCards.length < 2) return 'selecting'
@@ -12,7 +20,7 @@ const calculateStatus = ({ selectedCardIds, cards }) => {
   return 'unmatch'
 }
 
-const isLastUnmatchedCard = (cards) => {
+const isLastUnmatchedCard = (cards: Card[]) => {
   const filteredCards = cards.filter((card) => !card.isFaceUp)
   if (filteredCards.length === 1) return true
   return false
@@ -20,7 +28,7 @@ const isLastUnmatchedCard = (cards) => {
 
 const getCurrentTimestamp = () => Date.now()
 
-const selectCard = (id, { time, selectedCardIds, cards }) => {
+const selectCard = (id: string, { time, selectedCardIds, cards }: State) => {
   return {
     time: {
       start: time.start || getCurrentTimestamp(),
@@ -39,7 +47,7 @@ const selectCard = (id, { time, selectedCardIds, cards }) => {
   }
 }
 
-const deselectCards = ({ time, selectedCardIds, cards }) => {
+const deselectCards = ({ time, selectedCardIds, cards }: State) => {
   return {
     time,
     selectedCardIds: [],
@@ -55,9 +63,16 @@ const deselectCards = ({ time, selectedCardIds, cards }) => {
   }
 }
 
-const isClickableCard = (id, status, cards) => {
+interface IsClickableCard {
+  id: string
+  status: ReturnType<typeof calculateStatus>
+  cards: Card[]
+}
+
+const isClickableCard = ({ id, status, cards }: IsClickableCard) => {
   if (status === 'unmatch') return false
   const selectedCard = cards.find((card) => card.id === id)
+  if (!selectedCard) throw new Error('Card not found')
   if (selectedCard.isFaceUp) return false
   return true
 }

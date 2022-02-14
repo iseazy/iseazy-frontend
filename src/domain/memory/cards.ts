@@ -18,12 +18,12 @@ class Card {
   isFaceUp = false
   type
 
-  constructor(type) {
+  constructor(type: string) {
     this.type = type
   }
 }
 
-function CardsFactory() {
+function CardsFactory(): Card[] {
   return shuffle(
     CardTypes.map((type) => [new Card(type), new Card(type)]).flat(),
   )

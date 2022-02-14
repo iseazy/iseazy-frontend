@@ -1,6 +1,11 @@
 import styles from './button.module.css'
 
-function Button({ children, onClick }) {
+interface IProps {
+  children: React.ReactNode
+  onClick: () => void
+}
+
+function Button({ children, onClick }: IProps) {
   return (
     <button className={styles.button} onClick={onClick}>
       {children}

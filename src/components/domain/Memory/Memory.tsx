@@ -1,4 +1,3 @@
-import React from 'react'
 import useMemory from '../../../domain/hooks/useMemory'
 import Card from '../Card/Card'
 import styles from './memory.module.css'
@@ -8,7 +7,7 @@ import RestartModalBody from '../RestartModal/RestartModal'
 function Memory() {
   const { time, status, cards, selectCard, restartGame } = useMemory()
 
-  const handleClick = (id) => {
+  const handleClick = (id: string) => {
     selectCard(id)
   }
 

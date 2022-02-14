@@ -7,7 +7,16 @@ import {
   isClickableCard,
 } from '../memory/logic'
 
-const initialState = () => {
+interface State {
+  time: {
+    start: number | null
+    end: number | null
+  }
+  selectedCardIds: String[]
+  cards: ReturnType<typeof CardsFactory>
+}
+
+const initialState = (): State => {
   return {
     time: {
       start: null,
@@ -21,7 +30,10 @@ const initialState = () => {
 function useMemory() {
   const [state, setState] = useState(initialState())
   // derived state
-  const status = calculateStatus(state)
+  const status = calculateStatus({
+    selectedCardIds: state.selectedCardIds,
+    cards: state.cards,
+  })
 
   useEffect(() => {
     if (status !== 'unmatch') return
@@ -31,8 +43,8 @@ function useMemory() {
     return () => clearTimeout(timer)
   }, [status])
 
-  const selectCard = (id) => {
-    if (isClickableCard(id, status, state.cards))
+  const selectCard = (id: string) => {
+    if (isClickableCard({ id, status, cards: state.cards }))
       setState((currentState) => select(id, currentState))
   }
 
@@ -49,4 +61,5 @@ function useMemory() {
   }
 }
 
+export type { State }
 export default useMemory
