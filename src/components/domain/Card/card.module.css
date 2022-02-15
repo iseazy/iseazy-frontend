@@ -3,7 +3,6 @@
   position: relative;
   width: 100px;
   height: 100px;
-  transform-style: preserve-3d;
 }
 
 .card img {
@@ -11,6 +10,7 @@
   display: block;
   position: relative;
   border-radius: 10px;
+  box-shadow: 0px 3px 6px #00000033;
 }
 
 /* face up animation */
@@ -36,11 +36,12 @@
 
 .faceDown {
   cursor: pointer;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .faceDown img {
   position: absolute;
-  background-color: white;
   opacity: 0.5;
 }
 
