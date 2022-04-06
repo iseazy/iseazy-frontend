@@ -77,12 +77,12 @@ export default function GameMemory({ handleEndGame }) {
     }
   }, [cards]);
 
-  // Actualizacion del tiempo de juego
+  // hendle que setea el tiempo de juego del jugador
   const handleTimeRecord = (time) => {
     setTimeRecord(time);
   };
 
-  // Handle que finaliza el juego
+  // handle que finaliza el juego
   const handleGameOver = () => {
     handleEndGame();
   };

@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Modal, ModalBody, ModalFooter, Label } from "reactstrap";
 
-import "../css/modal.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "../css/modal.css";
 
-//TODO: refactor
 export default function ModalEnd({ timeRecord, handleGameOver }) {
   const [openModal, setOpenModal] = useState(true);
 

@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 import Timer from "./components/Timer";
+import { timeFormat } from "./utils/timeFormat";
 
 test("init MeMemory", () => {
   render(<App />);
@@ -35,4 +36,10 @@ test("the Timer Component has started successfully", () => {
 
   expect(span).toHaveClass("timer");
   expect(span).toHaveTextContent("00:00");
+});
+
+test("the timeFormat function is correct", () => {
+  const format = timeFormat(new Date());
+
+  expect(format).toEqual(expect.stringMatching(/^([0-5]\d):([0-5]\d)$/));
 });
