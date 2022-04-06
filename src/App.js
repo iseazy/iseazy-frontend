@@ -1,22 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./css/App.css";
+import Menu from "./Menu";
+import GameMemory from "./containers/GameMemory";
 
 function App() {
+  const [initGame, setInitGame] = useState(false);
+
+  const handleInitGame = () => {
+    setInitGame(true);
+  };
+
+  const handleEndGame = () => {
+    setInitGame(false);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {initGame ? (
+          <GameMemory handleEndGame={handleEndGame} />
+        ) : (
+          <Menu handleInitGame={handleInitGame} />
+        )}
       </header>
     </div>
   );
