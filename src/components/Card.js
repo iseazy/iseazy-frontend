@@ -21,7 +21,7 @@ export default function Card({
 
   return (
     <div className="card">
-      <div className={flipped ? "flipped" : ""} key={card.id}>
+      <div className={flipped ? "flipped" : ""}>
         <img className="front" src={card.src} alt="card_front" />
         <img
           className="reverse"
