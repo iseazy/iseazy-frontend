@@ -27,13 +27,14 @@ export default function GameMemory({ handleEndGame }) {
   const [gameOver, setGameOver] = useState(false);
 
   // Crear una nueva baraja aleatoria al inicio del juego
-  useEffect(() => {
+  const shuffleCards = () => {
     const shuffle = [...cardsImages, ...cardsImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
 
     setCards(shuffle);
-  }, []);
+  };
+  useEffect(shuffleCards, []);
 
   // handle para manejar las selecciones de cartas del jugador
   const handleChoice = (card) => {
@@ -47,7 +48,7 @@ export default function GameMemory({ handleEndGame }) {
   };
 
   // efecto que compara las cartas seleccionadas por el jugador y calcula si hacen match
-  useEffect(() => {
+  const compareCards = () => {
     if (firstChoice && secondChoice) {
       if (firstChoice?.src === secondChoice?.src) {
         setCards((prevCards) => {
@@ -67,15 +68,17 @@ export default function GameMemory({ handleEndGame }) {
         }, 1000);
       }
     }
-  }, [firstChoice, secondChoice]);
+  };
+  useEffect(compareCards, [firstChoice, secondChoice]);
 
   // Efecto encargado de determinar si se han encontrado todos los pares de cartas y que cambia el estado que lanzar el evento de fin de juego
-  useEffect(() => {
+  const launchEndGame = () => {
     const isGameOver = cards.find((card) => card.match === false);
     if (cards.length > 0 && !isGameOver) {
       setGameOver(true);
     }
-  }, [cards]);
+  };
+  useEffect(launchEndGame, [cards]);
 
   // hendle que setea el tiempo de juego del jugador
   const handleTimeRecord = (time) => {
