@@ -73,8 +73,8 @@ export default function GameMemory({ handleEndGame }) {
 
   // Efecto encargado de determinar si se han encontrado todos los pares de cartas y que cambia el estado que lanzar el evento de fin de juego
   const launchEndGame = () => {
-    const isGameOver = cards.find((card) => card.match === false);
-    if (cards.length > 0 && !isGameOver) {
+    const isAllPairsMatch = cards.find((card) => card.match === false);
+    if (cards.length > 0 && !isAllPairsMatch) {
       setGameOver(true);
     }
   };
