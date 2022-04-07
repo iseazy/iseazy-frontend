@@ -1,10 +1,6 @@
 import "./css/menu.css";
 
 export default function Menu({ handleInitGame }) {
-  const handleStartGame = () => {
-    handleInitGame();
-  };
-
   return (
     <div className="App-header">
       <div className="circle-logo">
@@ -12,7 +8,7 @@ export default function Menu({ handleInitGame }) {
       </div>
 
       <h1 className="memory-title">MeMemory</h1>
-      <button onClick={handleStartGame} className="button-start">
+      <button onClick={handleInitGame} className="button-start">
         Comenzar
       </button>
     </div>
