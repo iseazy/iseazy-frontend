@@ -6,16 +6,22 @@ import ModalEnd from "../components/ModalEnd";
 import "../css/game.css";
 
 // TODO: metodo rapido para la optencion de las imagenes
-const cardsImages = [
-  { src: "/img/1.png", match: false },
-  { src: "/img/2.png", match: false },
-  { src: "/img/3.png", match: false },
-  { src: "/img/4.png", match: false },
-  { src: "/img/5.png", match: false },
-  { src: "/img/6.png", match: false },
-  { src: "/img/7.png", match: false },
-  { src: "/img/8.png", match: false },
-  { src: "/img/9.png", match: false },
+function card(src, match = false, id = null) {
+  this.src = src;
+  this.match = match;
+  this.id = id;
+}
+
+const cardsCollection = [
+  new card("/img/1.png"),
+  new card("/img/2.png"),
+  new card("/img/3.png"),
+  new card("/img/4.png"),
+  new card("/img/5.png"),
+  new card("/img/6.png"),
+  new card("/img/7.png"),
+  new card("/img/8.png"),
+  new card("/img/9.png"),
 ];
 
 export default function GameMemory({ handleEndGame }) {
@@ -28,7 +34,7 @@ export default function GameMemory({ handleEndGame }) {
 
   // Crear una nueva baraja aleatoria al inicio del juego
   const shuffleCards = () => {
-    const shuffle = [...cardsImages, ...cardsImages]
+    const shuffle = [...cardsCollection, ...cardsCollection]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
 
