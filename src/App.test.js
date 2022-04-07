@@ -26,7 +26,7 @@ test("the gameMemory has a correct class", () => {
   fireEvent.click(comenzar);
 
   const linkElement = screen.getByTestId("testid-timer-gameMemory");
-  expect(linkElement).toHaveClass("card-grid");
+  expect(linkElement).toHaveClass("memory-card-grid");
 });
 
 test("the Timer Component has started successfully", () => {

@@ -98,7 +98,7 @@ export default function GameMemory({ handleEndGame }) {
 
   return (
     <>
-      <div data-testid="testid-timer-gameMemory" className="card-grid">
+      <div data-testid="testid-timer-gameMemory" className="memory-card-grid">
         {cards.map((card) => (
           <Card
             card={card}

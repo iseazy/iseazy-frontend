@@ -1,4 +1,4 @@
-.card-grid {
+.memory-card-grid {
     margin-top: 40px;
     margin-right: 150px;
     margin-left: 150px;
@@ -8,15 +8,15 @@
     grid-gap: 20px;
 }
 
-.card {
-    border-radius: 12% !important;
+.memory-card {
+    border-radius: 12%;
     position: relative;
     cursor: pointer;
-    background: none !important;
-    border: none !important;
+    background: none;
+    border: none;
 }
 
-.card .front {
+.memory-card .front {
     width: 150px;
     border-radius: 12%;
     transform: rotateY(90deg);
@@ -31,7 +31,7 @@
     transition-delay: 0.2s;
 }
 
-.card .reverse {
+.memory-card .reverse {
     width: 150px;
     border-radius: 12%;
     transition: all ease-in 0.2s;
