@@ -1,8 +1,7 @@
-import { Board } from './board.entity'
 import { Item } from './item.entity'
 
 export interface Game {
-  board: Board
+  board: Item[]
 
   selectedItems: Array<number>
   matchedItems: Array<Item['key']>
