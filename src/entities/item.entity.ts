@@ -1,4 +1,4 @@
-export interface Item{
-    key: string;
-    image: string;
+export interface Item {
+  key: string
+  image: string
 }
