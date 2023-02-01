@@ -1,14 +1,12 @@
 import { useState } from 'react'
-import { Game } from './views/Game'
+import { GameView } from './views/Game'
 import { Home } from './views/Home'
 
-function App () {
+function App() {
   const [isGameStarted, setIsGameStarted] = useState(false)
   const startGame = () => setIsGameStarted(true)
 
-  return (
-    isGameStarted ? <Game/> : <Home startGame={startGame}/>
-  )
+  return isGameStarted ? <GameView /> : <Home startGame={startGame} />
 }
 
 export default App
