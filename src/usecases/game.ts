@@ -23,3 +23,16 @@ export function initializeGame(): Game {
     matchedItems: [],
   }
 }
+
+export function isTheSameItemSelected(board: Board, selectedItems: Game['selectedItems']): boolean {
+  const [firstItem, secondItem] = selectedItems
+  return board[firstItem].key === board[secondItem].key
+}
+
+export function isTheGameOver(board: Board, matchedItems: Game['matchedItems']): boolean {
+  return matchedItems.length === board.length / 2 && matchedItems.length === AVAILABLE_ITEMS.length
+}
+
+export function isTheGameStarted(startTime?: Game['startTime']): boolean {
+  return startTime !== undefined
+}
