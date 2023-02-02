@@ -33,7 +33,11 @@ export function isTheSameItemSelected(
 }
 
 export function isTheGameOver(board: Item[], matchedItems: Game['matchedItems']): boolean {
-  return matchedItems.length === board.length / 2 && matchedItems.length === AVAILABLE_ITEMS.length
+  const allKeys = board.map(item => item.key)
+  const uniqueKeys = allKeys.filter((key, index) => allKeys.indexOf(key) === index)
+  const eachUniqueKeyIsMatched = uniqueKeys.every(key => matchedItems.includes(key))
+
+  return eachUniqueKeyIsMatched
 }
 
 export function isTheGameStarted(startTime?: Game['startTime']): boolean {
