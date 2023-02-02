@@ -27,5 +27,5 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--color-tertiary);
+  background: transparent linear-gradient(180deg, var(--color-tertiary) 0%, var(--color-gray) 100%) 0% 0% no-repeat padding-box;
 }
