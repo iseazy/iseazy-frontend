@@ -19,7 +19,7 @@ export function Card({ value, isFlipped, item, onClick }: CardProps) {
         <img className={`${styles.image} ${styles.cover}`} src={COVER_IMAGE} alt={'Cover'} />
       </section>
       <section className={styles.back}>
-        <img className={styles.image} src={item.image} alt={item.key} />
+        <img className={styles.image} src={item.image} alt={item.altText} />
       </section>
     </article>
   )
