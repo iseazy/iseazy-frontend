@@ -9,6 +9,8 @@ import {
 import { Game } from '../../entities/game.entity'
 import { FormatedTime, formatTimeFromMilliseconds } from '../../usecases/time'
 import { Board } from '../../components/Board'
+import { Modal } from '../../components/Modal/Modal'
+import { FinishInfo } from '../../components/FinishInfo/FinishInfo'
 
 export function GameView() {
   const [{ board, matchedItems, selectedItems, endTime, startTime }, setGame] =
@@ -16,6 +18,10 @@ export function GameView() {
 
   const startGame = () => setGame(prevGame => ({ ...prevGame, startTime: Date.now() }))
   const endGame = () => setGame(prevGame => ({ ...prevGame, endTime: Date.now() }))
+  const restartGame = () => {
+    setGame(() => initializeGame())
+    setTimeout(startGame, 2000)
+  }
   const cleanSelectedItems = () => setGame(prevGame => ({ ...prevGame, selectedItems: [] }))
   const updateMatchedItemsAndCleanSelectedItems = (key: string) =>
     setGame(prevGame => ({
@@ -67,16 +73,17 @@ export function GameView() {
 
   return (
     <main className={styles.container}>
-      {!isGameOver ? (
-        <Board
-          board={board}
-          handleCardClick={handleCardClick}
-          isGameStarted={isGameStarted}
-          matchedItems={matchedItems}
-          selectedItems={selectedItems}
-        />
-      ) : (
-        <div className={styles.gameOver}>Game Over, you finished in {time}</div>
+      <Board
+        board={board}
+        handleCardClick={handleCardClick}
+        isGameStarted={isGameStarted}
+        matchedItems={matchedItems}
+        selectedItems={selectedItems}
+      />
+      {isGameOver && (
+        <Modal>
+          <FinishInfo time={time} restartGame={restartGame} />
+        </Modal>
       )}
     </main>
   )

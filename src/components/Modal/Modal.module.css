@@ -1,0 +1,24 @@
+.overlay {
+	position: fixed;
+	inset: 0;
+	height: 100vh;
+	width: 100vw;
+
+	background-color: #00000099;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal {
+	position: relative;
+	background-color: var(--color-white);
+	border-radius: 20px;
+
+	padding: 30px 50px;
+}
+
+.bodyOverflow {
+	overflow-y: hidden;
+}
