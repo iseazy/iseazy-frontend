@@ -2,7 +2,7 @@ import { useEffect, useMemo, useReducer } from 'react'
 import {
   cleanSelectedItems,
   endGame,
-  restartGame,
+  restartGame as restartGameAction,
   startGame,
   updateMatchedItems,
   updateSelectedItems,
@@ -58,6 +58,11 @@ export function useGame() {
     dispatch(updateSelectedItems(index))
   }
 
+  const restartGame = () => {
+    dispatch(restartGameAction())
+    setTimeout(() => dispatch(startGame()), 2000)
+  }
+
   return {
     board,
     isGameStarted,
@@ -66,6 +71,6 @@ export function useGame() {
     matchedItems,
     selectedItems,
     handleItemClick,
-    restartGame: () => dispatch(restartGame()),
+    restartGame,
   }
 }

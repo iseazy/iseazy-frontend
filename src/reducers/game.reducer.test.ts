@@ -35,7 +35,6 @@ describe('#gameReducer', () => {
       const gamePlayed = { ...game, selectedItems: [1, 2], matchedItems: ['test'] }
       const state = gameReducer(gamePlayed, RESTART_GAME)
 
-      expect(state.startTime).toBeDefined()
       expect(state.selectedItems).toEqual([])
       expect(state.matchedItems).toEqual([])
     })

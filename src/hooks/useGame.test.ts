@@ -112,7 +112,7 @@ describe('#useGame', () => {
   })
 
   describe('when the user restarts the game', () => {
-    it('should return the initial state and start the game', () => {
+    it('should return the initial state and after 2 seconds start the game', () => {
       const { result } = renderHook(() => useGame())
 
       act(() => advanceTimersUntilGameBegins())
@@ -123,6 +123,7 @@ describe('#useGame', () => {
       act(() => {
         result.current.restartGame()
       })
+      act(() => advanceTimersUntilGameBegins())
 
       const { board, isGameStarted, isGameOver, time, matchedItems, selectedItems } = result.current
       expect(board).toHaveLength(mockedGame.board.length)

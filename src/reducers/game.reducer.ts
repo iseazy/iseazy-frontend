@@ -9,7 +9,7 @@ export function gameReducer(state: Game, action: GameAction): Game {
     case GameActionTypes.END_GAME:
       return { ...state, endTime: Date.now() }
     case GameActionTypes.RESTART_GAME:
-      return { ...initializeGame(), startTime: Date.now() }
+      return initializeGame()
     case GameActionTypes.CLEAN_SELECTED_ITEMS:
       return { ...state, selectedItems: [] }
     case GameActionTypes.UPDATE_MATCHED_ITEMS:
