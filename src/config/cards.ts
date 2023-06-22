@@ -7,6 +7,7 @@ import img6 from '../assets/cards/6.png';
 import img7 from '../assets/cards/7.png';
 import img8 from '../assets/cards/8.png';
 import img9 from '../assets/cards/9.png';
+import imgBackground from '../assets/card-background.svg';
 
 export interface CardInfo {
   id: number;
@@ -25,6 +26,7 @@ export const images: string[] = [
   img7,
   img8,
   img9,
+  imgBackground,
 ]
 
 export const cards: CardInfo[] = [
