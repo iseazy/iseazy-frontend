@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
-import { CardInfo, cards as cardsConfig } from '../../config/cards';
+import { CardInfo, cards as cardsConfig, images } from '../../config/cards';
 import { shuffle } from '../../utils/shuffle';
 import useInterval from '../../hooks/useInterval';
 import Modal from '../../components/Modal/Modal';
@@ -69,6 +69,14 @@ function Game() {
       saveScore(timer);
     }
   }, [cards, timer]);
+
+  // Preloading images
+  useEffect(() => {
+    images.forEach(image => {
+      const img = new Image();
+      img.src = image;
+    });
+  })
 
   const scores = getScores();
 

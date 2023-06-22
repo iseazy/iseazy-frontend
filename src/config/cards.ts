@@ -15,6 +15,18 @@ export interface CardInfo {
   match: boolean;
 }
 
+export const images: string[] = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+]
+
 export const cards: CardInfo[] = [
   { id: 1, cardId: 1, img: img1, match: false },
   { id: 2, cardId: 1, img: img1, match: false },
