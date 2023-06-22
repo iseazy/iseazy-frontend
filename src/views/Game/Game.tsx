@@ -4,9 +4,19 @@ import { CardInfo, cards as cardsConfig, images } from '../../config/cards';
 import { shuffle } from '../../utils/shuffle';
 import useInterval from '../../hooks/useInterval';
 import Modal from '../../components/Modal/Modal';
-import clock from '../../assets/clock.svg';
 import { parseTime } from '../../utils/time';
 import { getScores, saveScore } from '../../utils/localStorage';
+import clock from '../../assets/clock.svg';
+
+const correct = require('../../assets/audios/correct.mp3');
+const correctAudio = new Audio();
+correctAudio.src = correct;
+correctAudio.volume = 0.5;
+
+const wrong = require('../../assets/audios/wrong.mp3');
+const wrongAudio = new Audio();
+wrongAudio.src = wrong;
+wrongAudio.volume = 0.5;
 
 function Game() {
   const [ cards, setCards ] = useState(shuffle(cardsConfig));
@@ -18,7 +28,8 @@ function Game() {
   useInterval(() => setTimer(prev => prev + 1), isPlaying ? 1000 : null);
 
   const compareCards = (firstCard: CardInfo, secondCard: CardInfo): boolean => {
-    if (firstCard.cardId === secondCard.cardId) {
+    if (firstCard.cardId === secondCard.cardId && firstCard.id !== secondCard.id) {
+      correctAudio.play();
       setCards(prevValue => {
         const newCards = [...prevValue];
         const firstCardIndex = newCards.findIndex(card => card.id === firstCard.id);
@@ -31,10 +42,16 @@ function Game() {
 
       return true
     }
+
+    wrongAudio.play();
     return false;
   }
 
   const handleChoice = (card: CardInfo) => {
+    if (firstChoice && secondChoice) {
+      return
+    }
+
     if (!firstChoice) {
       setFirstChoice(card);
     } else if(!secondChoice) {
@@ -55,6 +72,14 @@ function Game() {
 
   const handleShowImage = (card: CardInfo) => {
     return card.match || firstChoice?.id === card.id || secondChoice?.id === card.id
+  }
+
+
+  const handleDisableCard = (card: CardInfo) => {
+    return card.match||
+      !!(firstChoice && secondChoice) ||
+      firstChoice?.id === card.id ||
+      secondChoice?.id === card.id
   }
 
   const resetGame = () => {
@@ -94,7 +119,7 @@ function Game() {
             key={card.id} position={i + 1} img={card.img}
             handleChoice={() => handleChoice(card)}
             showImage={handleShowImage(card)}
-            disabled={card.match || !!(firstChoice && secondChoice)}
+            disabled={handleDisableCard(card)}
           />
         ))}
       </div>
