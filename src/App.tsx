@@ -16,7 +16,7 @@ function App() {
   }), []);
 
   return (
-    <div className="App min-h-screen">
+    <div className="App min-h-screen m-0 font-sans bg-iseasy-gray-100 text-iseasy-gray-400">
       {StepsMap[step]}
     </div>
   );
