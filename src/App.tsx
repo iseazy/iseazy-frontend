@@ -12,11 +12,11 @@ function App() {
 
   const StepsMap: Record<Steps, JSX.Element> = useMemo(() => ({
     [Steps.Start]: <StartGame nextStep={() => setStep(Steps.Game)} />,
-    [Steps.Game]: <Game nextStep={() => setStep(Steps.Start)} />
+    [Steps.Game]: <Game />
   }), []);
 
   return (
-    <div className="App m-0 font-sans bg-iseasy-gray-100 text-iseasy-gray-400 min-h-screen">
+    <div className="App min-h-screen">
       {StepsMap[step]}
     </div>
   );

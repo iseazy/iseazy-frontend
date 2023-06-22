@@ -3,17 +3,17 @@ import Card from '../../components/Card/Card';
 import { CardInfo, cards as cardsConfig } from '../../config/cards';
 import { shuffle } from '../../utils/shuffle';
 import useInterval from '../../hooks/useInterval';
+import Modal from '../../components/Modal/Modal';
+import clock from '../../assets/clock.svg';
+import { parseTime } from '../../utils/time';
+import { getScores, saveScore } from '../../utils/localStorage';
 
-interface GameProps {
-  nextStep: () => void;
-}
-
-function Game({ nextStep }: GameProps) {
+function Game() {
   const [ cards, setCards ] = useState(shuffle(cardsConfig));
   const [ firstChoice, setFirstChoice ] = useState<CardInfo | null>(null);
   const [ secondChoice, setSecondChoice ] = useState<CardInfo | null>(null);
-  const [timer, setTimer] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [ timer, setTimer ] = useState(0);
+  const [ isPlaying, setIsPlaying ] = useState(true);
 
   useInterval(() => setTimer(prev => prev + 1), isPlaying ? 1000 : null);
 
@@ -57,15 +57,30 @@ function Game({ nextStep }: GameProps) {
     return card.match || firstChoice?.id === card.id || secondChoice?.id === card.id
   }
 
+  const resetGame = () => {
+    setTimer(0);
+    setIsPlaying(true);
+    setCards(shuffle(cardsConfig));
+  }
+
   useEffect(() => {
     if (cards.every(card => card.match)) {
       setIsPlaying(false);
+      saveScore(timer);
     }
-  }, [cards])
+  }, [cards, timer]);
+
+  const scores = getScores();
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-cards md:w-[750px]">
+    <div className="min-h-screen flex flex-col justify-center items-center">
+      <div className="text-center my-4">
+        <p className="text-6xl flex items-center">
+          <img src={clock} alt="Clock icon" className="mr-3" />
+          {parseTime(timer)}
+        </p>
+      </div>
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-cards md:w-[750px] mb-4">
         {cards.map((card, i) => (
           <Card
             key={card.id} position={i + 1} img={card.img}
@@ -75,6 +90,36 @@ function Game({ nextStep }: GameProps) {
           />
         ))}
       </div>
+      {!isPlaying && (
+        <Modal
+          content={
+            <>
+              <div className="flex justify-between items-center">
+                <p className="text-3xl">¡Completado!</p>
+                <p className="text-6xl flex items-center">
+                  <img src={clock} alt="Clock icon" className="mr-3" />
+                  {parseTime(timer)}
+                </p>
+              </div>
+              {scores && (
+                <>
+                  <p className="text-xl text-iseazy mb-2">Your best results</p>
+                  <div className="flex flex-col">
+                    {scores.map(score => (
+                      <p className="flex text-base items-center ml-4">
+                        <img src={clock} alt="Clock icon" className="mr-3 h-4" />
+                        {parseTime(score)}
+                      </p>
+                    ))}
+                  </div>
+                </>
+              )}
+            </>
+          }
+          action={resetGame}
+          actionText="Jugar otra vez"
+        />
+      )}
     </div>
   )
 }
