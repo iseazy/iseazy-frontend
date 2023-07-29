@@ -20,7 +20,7 @@ export default function Card({ imgSrc, number, onClick, revealed, alt }) {
                     </>
                 )
             }
-            {imgSrc &&
+            {(imgSrc && revealed) &&
                 <img
                     className="memory-game__card__image"
                     src={imgSrc}
