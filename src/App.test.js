@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App component", () => {
+  test("should render the welcome page by default", async () => {
+    render(<App />);
+    const welcomeElement = await screen.findByText("MeMemory");
+    expect(welcomeElement).toBeInTheDocument();
+  });
+  test("should render the memory game page when the path is /memory-game", async () => {
+    window.history.pushState({}, "Memory game works!", "/memory-game");
+    render(<App />);
+    const memoryGameElement = await screen.findByText("Memory game works!");
+    expect(memoryGameElement).toBeInTheDocument();
+  });
 });
