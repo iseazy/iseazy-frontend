@@ -2,35 +2,21 @@ import { useState } from 'react';
 import './MemoryGame.css';
 import Board from './components/Board/Board';
 import CompletedDialog from './components/CompletedDialog/CompletedDialog';
-import { useEffect } from 'react';
 import useShuffle from './hooks/useShuffle';
 import { getInitialCards } from './utilities/get-initial-cards';
 import { formatTime } from './utilities/format-time';
+import useTimer from './hooks/useTimer';
+import useMemoryGame from './useMemoryGame';
 
 export default function MemoryGame() {
-    const [score, setScore] = useState(0);
-    const [selectedCards, setSelectedCards] = useState([]);
     const [isCompletedDialogOpen, setIsCompletedDialogOpen] = useState(false);
-    const [timer, setTimer] = useState(0);
-    const [isTimerRunning, setIsTimerRunning] = useState(false);
     const [initialCards, setInitialCards] = useState(getInitialCards());
     const [cards, setCards] = useShuffle(initialCards);
-    useEffect(() => {
-        let interval;
-        if (isTimerRunning) {
-            interval = setInterval(() => {
-                setTimer(timer => timer + 1);
-            }, 1000);
-        }
-        return () => {
-            clearInterval(interval);
-        };
-    }, [isTimerRunning]);
+    const [isTimerRunning, setIsTimerRunning] = useState(false);
+    const [timer, setTimer] = useTimer(0, isTimerRunning);
+    const { selectedCards, handleMismatch, setSelectedCards} = useMemoryGame(cards);
     const onCardClicked = (card) => {
-        if (selectedCards.length === 2) {
-            return;
-        }
-        if (card.revealed) {
+        if (selectedCards.length > 1 || card.revealed) {
             return;
         }
         if (!isTimerRunning) {
@@ -39,21 +25,18 @@ export default function MemoryGame() {
         card.revealed = true;
         setCards([...cards]);
         setSelectedCards([...selectedCards, card]);
-        if (selectedCards.length === 1) {
-            if (selectedCards[0].imgSrc === card.imgSrc) {
-                setScore(score + 1);
+        const hasOneCardSelected = selectedCards.length === 1;
+        if (hasOneCardSelected) {
+            const isAMatch = selectedCards[0].imgSrc === card.imgSrc;
+            if (isAMatch) {
                 setSelectedCards([]);
-                if (score + 1 === cards.length / 2) {
+                const isCompleted = cards.every(card => card.revealed);
+                if (isCompleted) {
                     setIsCompletedDialogOpen(true);
                     setIsTimerRunning(false);
                 }
             } else {
-                setTimeout(() => {
-                    selectedCards[0].revealed = false;
-                    card.revealed = false;
-                    setCards([...cards]);
-                    setSelectedCards([]);
-                }, 1000);
+                handleMismatch(selectedCards[0], card);
             }
         }
     };
