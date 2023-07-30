@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from '../../components/Button/Button';
 import logo from './logo.svg';
 import './Welcome.css';
 
@@ -11,7 +12,7 @@ export default function Welcome() {
                 </div>
                 <h1 className='welcome__text'>MeMemory</h1>
                 <Link className="welcome__link" to="/memory-game">
-                    <button className='welcome__button'>Comenzar</button>
+                    <Button>Comenzar</Button>
                 </Link>
             </section>
         </main>

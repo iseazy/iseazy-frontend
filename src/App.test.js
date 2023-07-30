@@ -10,7 +10,7 @@ describe("App component", () => {
   test("should render the memory game page when the path is /memory-game", async () => {
     window.history.pushState({}, "Memory game works!", "/memory-game");
     render(<App />);
-    const memoryGameElement = await screen.findByText("Memory game works!");
-    expect(memoryGameElement).toBeInTheDocument();
+    const memoryGameElements = await screen.findAllByRole("button");
+    expect(memoryGameElements.length).toBe(18);
   });
 });
