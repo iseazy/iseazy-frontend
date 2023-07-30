@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import './MemoryGame.css';
 import Board from './components/Board/Board';
 import CompletedDialog from './components/CompletedDialog/CompletedDialog';
@@ -15,7 +15,7 @@ export default function MemoryGame() {
     const [isTimerRunning, setIsTimerRunning] = useState(false);
     const [timer, setTimer] = useTimer(0, isTimerRunning);
     const { selectedCards, handleMismatch, setSelectedCards} = useMemoryGame(cards);
-    const onCardClicked = (card) => {
+    const onCardClicked = useCallback((card) => {
         if (selectedCards.length > 1 || card.revealed) {
             return;
         }
@@ -39,7 +39,7 @@ export default function MemoryGame() {
                 handleMismatch(selectedCards[0], card);
             }
         }
-    };
+    }, [selectedCards, isTimerRunning, setCards, cards, setSelectedCards, handleMismatch]);
 
     const handleExit = () => {
         setTimer(0);
