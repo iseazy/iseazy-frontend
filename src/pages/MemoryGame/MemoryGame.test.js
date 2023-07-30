@@ -28,9 +28,7 @@ describe('MemoryGame', () => {
             jest.advanceTimersByTime(1500);
         }
     }
-    jest.advanceTimersByTime(1500);
-    await waitFor(() => {
-      expect(screen.getByText('¡Completado!')).toBeInTheDocument();
-    });
+    jest.advanceTimersByTime(10000);
+    expect(screen.getByText('¡Completado!')).toBeInTheDocument();
   });
 });

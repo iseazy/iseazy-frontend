@@ -12,38 +12,17 @@ import image10 from './images/10.png';
 import image15 from './images/15.png';
 import image16 from './images/16.png';
 import image17 from './images/17.png';
+import useShuffle from './hooks/useShuffle';
+import { getInitialCards } from './utilities/get-initial-cards';
 
 export default function MemoryGame() {
-    const [cards, setCards] = useState([]);
     const [score, setScore] = useState(0);
     const [selectedCards, setSelectedCards] = useState([]);
     const [isCompletedDialogOpen, setIsCompletedDialogOpen] = useState(false);
     const [timer, setTimer] = useState(0);
     const [isTimerRunning, setIsTimerRunning] = useState(false);
-    const shuffleCards = () => {
-        const shuffledCards = [
-            { imgSrc: image3, revealed: false, row: 1 },
-            { imgSrc: image4, revealed: false, row: 1 },
-            { imgSrc: image5, revealed: false, row: 1 },
-            { imgSrc: image8, revealed: false, row: 1 },
-            { imgSrc: image9, revealed: false, row: 1 },
-            { imgSrc: image10, revealed: false, row: 1 },
-            { imgSrc: image15, revealed: false, row: 1 },
-            { imgSrc: image16, revealed: false, row: 1 },
-            { imgSrc: image17, revealed: false, row: 1 },
-            { imgSrc: image3, revealed: false, row: 2 },
-            { imgSrc: image4, revealed: false, row: 2 },
-            { imgSrc: image5, revealed: false, row: 2 },
-            { imgSrc: image8, revealed: false, row: 2 },
-            { imgSrc: image9, revealed: false, row: 2 },
-            { imgSrc: image10, revealed: false, row: 2 },
-            { imgSrc: image15, revealed: false, row: 2 },
-            { imgSrc: image16, revealed: false, row: 2 },
-            { imgSrc: image17, revealed: false, row: 2 },
-        ].sort(() => Math.random() - 0.5);
-        setCards(shuffledCards);
-    };
-    useEffect(shuffleCards, []);
+    const [initialCards, setInitialCards] = useState(getInitialCards());
+    const [cards, setCards] = useShuffle(initialCards);
     useEffect(() => {
         let interval;
         if (isTimerRunning) {
@@ -90,7 +69,7 @@ export default function MemoryGame() {
     const handleExit = () => {
         setTimer(0);
         setIsCompletedDialogOpen(false);
-        shuffleCards();
+        setInitialCards(getInitialCards());
     }
 
     const formatTime = (seconds) => {
