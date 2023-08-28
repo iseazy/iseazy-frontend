@@ -1,7 +1,8 @@
 # Prueba técnica
 
 El objetivo de esta prueba es conocer un poco mejor cómo trabajas, las buenas prácticas que sigues y tu atención por el
-detalle.
+detalle. Valoraremos la sencillez, facilidad para entender el código y la robustez. 
+Aspectos que nos facilitan aseguar la calidad, revisar, modificar y mantener el código.  
 
 Para realizar el ejercicio te proporcionaremos un proyecto vacío creado con CRA y un diseño realizado con Adobe XD para
 que puedas obtener los materiales necesarios de forma cómoda:
