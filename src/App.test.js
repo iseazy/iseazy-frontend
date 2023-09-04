@@ -1,8 +1,18 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen, waitFor } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App component", () => {
+  test("should render the welcome page by default", async () => {
+    render(<App />);
+    const welcomeElement = await screen.findByText("MeMemory");
+    expect(welcomeElement).toBeInTheDocument();
+  });
+  test("should render the memory game page when the path is /memory-game", async () => {
+    jest.useFakeTimers();
+    window.history.pushState({}, "Memory game works!", "/memory-game");
+    render(<App />);
+    jest.advanceTimersByTime(1000);
+    const buttons = await screen.findAllByRole("button", { timeout: 3000 });
+    expect(buttons.length).toBe(18);
+  });
 });
