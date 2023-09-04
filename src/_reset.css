@@ -27,12 +27,6 @@
   vertical-align: baseline;
 }
 
-img, picture, video, iframe, figure {
-  max-width: 100%;
-  width: 100%;
-  display: block;
-}
-
 a {
   display: block;
   text-decoration: none;
@@ -77,9 +71,6 @@ blockquote:before, blockquote:after, q:before, q:after {
 form, input, textarea, select, button, label {
   font-family: inherit;
   font-size: inherit;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
   background-color: transparent;
   color: inherit;
   display: block;
@@ -102,9 +93,6 @@ body {
   font-family: var(--main-typo);
   color: var(--black);
   line-height: 1.4em;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
