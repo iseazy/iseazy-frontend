@@ -27,3 +27,8 @@
     margin-bottom: 6.7rem;
     margin-top: 3.2rem;
 }
+
+.home__buttons {
+    display: flex;
+    gap: 1rem;
+}

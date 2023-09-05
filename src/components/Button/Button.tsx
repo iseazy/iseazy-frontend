@@ -3,9 +3,10 @@ import './button.css';
 
 interface ButtonProps {
     text: string;
+    className: string;
 }
-export const Button: FC<ButtonProps> = ({text}: ButtonProps) => {
+export const Button: FC<ButtonProps> = ({text, className = 'button'}: ButtonProps) => {
     return (
-        <button className="button">{text}</button>
+        <button className={className}>{text}</button>
     )
 }

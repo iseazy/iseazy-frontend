@@ -10,7 +10,7 @@ export const MemoryBoard: FC = () => {
         <main className="board">
             <BoardGame />
             <Link to="/">
-                <Button text="Cancelar" />
+                <Button text="Cancelar" className="button" />
             </Link>
         </main>
     )
