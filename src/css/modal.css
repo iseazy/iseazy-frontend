@@ -1,0 +1,15 @@
+.modal-footer {
+    justify-content: center !important;
+}
+
+.modal-body {
+    justify-content: center !important;
+}
+
+.modal-content {
+    border-radius: 10% !important;
+}
+
+.time-record {
+    display: block;
+}
