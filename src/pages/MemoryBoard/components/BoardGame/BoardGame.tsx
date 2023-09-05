@@ -1,21 +1,13 @@
-import { FC, useCallback, useState } from "react";
-
+import { FC } from "react";
 import { Card } from ".."
 import { Card as CardProps} from "../../interfaces/card.interface";
-import { randomizeCards } from "../../helpers/getRandomizeCards";
+import { Modal } from '../../../../components';
+import { useMemoryGame } from "../../hooks";
 
 export const BoardGame: FC = () => {
 
-    const [cards, setCards] = useState<CardProps[]>(randomizeCards());
-    const [selectedCards, setSelectedCards] = useState<CardProps[]>([]);
-
-    const handleClick = useCallback((card: CardProps) => {
-        //if ( selectedCards.length === 2 ) return;
-        card.flipped = !card.flipped;
-        setCards([...cards]);
-        setSelectedCards([...selectedCards, card]);
-    }, [cards, selectedCards]);
-
+    const { cards, isGameOver, handleClick, timer, totalMovements } = useMemoryGame();
+    
     return (
         <div className="board__wrap">
             {
@@ -28,6 +20,7 @@ export const BoardGame: FC = () => {
                     />
                 ))
             }
+            { isGameOver && <Modal timer={timer} movements={totalMovements}/> }
         </div>
     )
 }
