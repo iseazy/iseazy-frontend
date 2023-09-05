@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 25px;
+  font-weight: bold;
+  color: #333;
+}
+
+.time {
+  font-size: 60px;
+  margin: 0 0 0 10px;
+}
+
+.textTime {
+  font-size: 20px;
+  margin: 20px 10px;
+}
