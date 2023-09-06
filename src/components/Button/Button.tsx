@@ -3,10 +3,11 @@ import './button.css';
 
 interface ButtonProps {
     text: string;
-    className: string;
+    className?: string;
+    handleClick?: () => void;
 }
-export const Button: FC<ButtonProps> = ({text, className = 'button'}: ButtonProps) => {
+export const Button: FC<ButtonProps> = ({text, className = 'button', handleClick}: ButtonProps) => {
     return (
-        <button className={className}>{text}</button>
+        <button className={className} onClick={handleClick}>{text}</button>
     )
 }

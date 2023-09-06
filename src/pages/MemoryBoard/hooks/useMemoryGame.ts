@@ -1,11 +1,15 @@
-import { useCallback, useState } from "react";
-import { randomizeCards } from "../helpers/getRandomizeCards";
+import { useCallback, useState, useEffect } from 'react';
 import { Card } from "../interfaces/card.interface";
-import { useMatches } from ".";
+import { useCards, useMatches } from ".";
 
 export const useMemoryGame = () => {
-    const [cards, setCards] = useState<Card[]>(randomizeCards());
-    const {selectedCards, setSelectedCards, timer, isGameOver, totalMovements} = useMatches(cards)
+    const { cardsQuery } = useCards();
+    const [cards, setCards] = useState<Card[]>(cardsQuery.data || []);
+    const {selectedCards, setSelectedCards, timer, isGameOver, totalMovements} = useMatches(cards);
+    
+    useEffect(() => {
+        setCards(cardsQuery.data || []);
+    }, [cardsQuery.data]);
 
     const handleClick = useCallback((card: Card) => {
         if ( selectedCards.length === 2 ) return;

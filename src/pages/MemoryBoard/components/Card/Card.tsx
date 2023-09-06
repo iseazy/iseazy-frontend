@@ -8,8 +8,8 @@ interface CardProps {
 }
 export const Card: FC<CardProps> = ({card, handleClick, index}: CardProps) => {
     return (
-        <div className="board__card" onClick={handleClick} role="button">
-            <div className={`card ${card.flipped ? `is-flipped` : ``}`}>
+        <div className="board__card animate__animated animate__zoomIn" onClick={handleClick} role="button" data-testid={`button-${card.id}`}>
+            <div className={`card ${card.flipped ? `is-flipped` : ``}`} data-testid={`card-${card.id}`}>
                 {
                 card.flipped
                     ?

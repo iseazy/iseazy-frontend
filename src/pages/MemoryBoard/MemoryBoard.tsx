@@ -7,7 +7,7 @@ import './memory-board.css';
 
 export const MemoryBoard: FC = () => {
     return (
-        <main className="board">
+        <main className="board animate__animated animate__fadeIn">
             <BoardGame />
             <Link to="/">
                 <Button text="Cancelar" className="button" />
@@ -15,3 +15,5 @@ export const MemoryBoard: FC = () => {
         </main>
     )
 }
+
+export default MemoryBoard;
