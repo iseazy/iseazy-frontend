@@ -19,7 +19,8 @@ const setRanking = async(params: RankingItem) => {
 export const useRanking = () => {
     const rankingQuery = useQuery(
         ['ranking'],
-        () => getRanking()
+        () => getRanking(),
+        { refetchOnWindowFocus: false }
     );
     return {
         rankingQuery,

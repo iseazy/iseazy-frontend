@@ -13,7 +13,7 @@ export const RankintTableItem: FC<Props> = ({index, item}: Props) => {
             <span className="ranking__position">{index+1}</span>
             <span className="ranking__name">{item.name}</span>
             <span className="ranking__time">{getTimeFormatted(item.time)}</span>
-            <span className="ranking__movements">{item.movements}</span>
+            <span className="ranking__attempts">{item.attempts}</span>
         </div>
     )
 }

@@ -10,9 +10,7 @@ export const useCards = () => {
     const cardsQuery = useQuery(
         ['cards'],
         () => getCards(),
-        {
-            refetchOnWindowFocus: false 
-        }
+        { refetchOnWindowFocus: false }
     );
     return {
         cardsQuery,

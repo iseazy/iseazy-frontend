@@ -4,12 +4,12 @@ import { useChronometer } from ".";
 
 export const useMatches = (cards: Card[]) => {
     const [selectedCards, setSelectedCards] = useState<Card[]>([]);
-    const [totalMovements, setTotalMovements] = useState<number>(0);
+    const [totalAttempts, setTotalAttempts] = useState<number>(0);
     const {timer, setStopTimer} = useChronometer();
     const [isGameOver, setIsGameOver] = useState<boolean>(false);
     useEffect(() => {
         if ( selectedCards.length === 2 ) {
-            setTotalMovements(totalMovements+1);
+            setTotalAttempts(totalAttempts+1);
             if ( selectedCards[0].cardPairID === selectedCards[1].cardPairID ) {
                 selectedCards[0].revealed = true;
                 selectedCards[1].revealed = true;
@@ -29,7 +29,7 @@ export const useMatches = (cards: Card[]) => {
     }, [selectedCards])
 
     return {
-        selectedCards, setSelectedCards, timer, isGameOver, totalMovements
+        selectedCards, setSelectedCards, timer, isGameOver, totalAttempts
 
     }
 }

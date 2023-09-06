@@ -7,7 +7,7 @@ import { Spinner } from "../../../../components/Spinner";
 
 export const BoardGame: FC = () => {
 
-    const { cards, isGameOver, handleClick, timer, totalMovements } = useMemoryGame();
+    const { cards, isGameOver, handleClick, timer, totalAttempts } = useMemoryGame();
     
     return (
         <div className="board__wrap">
@@ -22,7 +22,7 @@ export const BoardGame: FC = () => {
                 )) :
                 <Spinner />
             }
-            { isGameOver && <Modal timer={timer} movements={totalMovements}/> }
+            { isGameOver && <Modal timer={timer} attempts={totalAttempts}/> }
         </div>
     )
 }
