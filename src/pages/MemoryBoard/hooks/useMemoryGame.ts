@@ -11,10 +11,6 @@ export const useMemoryGame = () => {
         setCards(cardsQuery.data || []);
     }, [cardsQuery.data]);
 
-    useEffect(() => {
-        if (isGameOver) setCards([]);
-    }), [isGameOver];
-
     const handleClick = useCallback((card: Card) => {
         if ( selectedCards.length === 2 ) return;
         card.flipped = true;
