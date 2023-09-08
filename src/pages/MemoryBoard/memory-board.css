@@ -71,3 +71,15 @@
 .reversed {
     opacity: 0.2;
 }
+
+@media (max-width: 48rem) {
+    .board__wrap {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .card {
+        height: 4.5rem;
+        width: 4.5rem;
+    }
+}

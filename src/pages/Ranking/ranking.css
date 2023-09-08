@@ -28,6 +28,11 @@
     gap: 1.8rem;
     grid-template-columns: 2.5rem 1fr 3rem 3rem;
     padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.ranking__item:nth-child(1) {
+    font-size: 1em;
 }
 
 .ranking__item:nth-child(2) {
@@ -36,23 +41,19 @@
 }
 
 .ranking__position {
-    font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
 }
 
 .ranking__name {
-    font-size: 1.5rem;
     font-weight: 700;
 }
 
 .ranking__time {
-    font-size: 1.5rem;
     text-align: center;
 }
 
 .ranking__attempts {
-    font-size: 1.5rem;
     text-align: right;
 }
 
@@ -72,4 +73,15 @@
 
 .ranking__buttons {
     margin-top: 2rem;
+}
+
+@media (max-width: 48rem) {
+    .ranking__box {
+        width: 90%;
+    }
+    .ranking__item {
+        padding: 0.5em;
+        gap: 1rem;
+        font-size: 0.8rem;
+    }
 }

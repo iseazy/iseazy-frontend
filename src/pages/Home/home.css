@@ -32,3 +32,12 @@
     display: flex;
     gap: 1rem;
 }
+
+@media (max-width: 48rem) {
+    .home__title {
+        font-size: 3.2rem;
+    }
+    .home__buttons {
+        flex-direction: column;
+    }
+}
