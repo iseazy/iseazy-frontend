@@ -35,38 +35,39 @@ export class Game {
         return card1.cardPairID === card2.cardPairID
     }
 
-    public isMatched = () => {
-        const isMatched = this.areCardsEqual( this.gameState.selectedCards[0], this.gameState.selectedCards[1] );
+    public isMatched = (gameState: GameState ) => {
+        const isMatched = this.areCardsEqual( gameState.selectedCards[0], gameState.selectedCards[1] );
         if ( isMatched ) {
             this.gameState = {
-                ...this.gameState,
-                isGameOver: this.gameState.cards.every((c) => c.flipped),
+                ...gameState,
+                isGameOver: gameState.cards.every((c) => c.flipped),
                 selectedCards: [],
                 endTime: Date.now(),
-                totalAttempts: this.gameState.totalAttempts + 1,
+                totalAttempts: gameState.totalAttempts + 1,
             }
         } else {
-            const resetCards = this.gameState.cards.map((c) => {
-                if (c.id === this.gameState.selectedCards[1].id || c.id === this.gameState.selectedCards[0].id) {
+            const resetCards = gameState.cards.map((c) => {
+                if (c.id === gameState.selectedCards[1].id || c.id === gameState.selectedCards[0].id) {
                     return { ...c, flipped: false };
                 }
                 return c;
             });
     
             this.gameState = {
-                ...this.gameState,
+                ...gameState,
                 cards: resetCards,
                 selectedCards: [],
-                totalAttempts: this.gameState.totalAttempts + 1,
+                totalAttempts: gameState.totalAttempts + 1,
             }
         }
 
         return this.gameState;
     }
 
-    public handleCardClick = ( card: Card ) => {
-        const { selectedCards, cards } = this.gameState;
-        if (selectedCards.length > 1) return this.gameState;
+    public handleCardClick = ( gameState: GameState, card: Card ) => {
+
+        const { selectedCards, cards } = gameState;
+        if (selectedCards.length > 1) return gameState;
         const updateCards = cards.map((c) => {
             if (c.id === card.id) {
                 return { ...c, flipped: true };
@@ -75,7 +76,7 @@ export class Game {
         });
     
         this.gameState = {
-            ...this.gameState,
+            ...gameState,
             cards: updateCards,
             selectedCards: [...selectedCards, card],
         }

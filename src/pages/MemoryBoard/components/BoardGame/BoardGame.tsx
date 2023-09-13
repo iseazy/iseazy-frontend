@@ -18,11 +18,11 @@ export const BoardGame = () => {
 
     const handleClick = ( card: CardProps ) => {
         if ( !card.flipped && state.selectedCards.length < 2 ){
-            const newState = handleCardClick(card)
+            const newState = handleCardClick(state, card)
             setState(newState);
             if ( newState.selectedCards.length === 2 ) {
                 setTimeout(() => {
-                    setState(isMatched());
+                    setState(isMatched(newState));
                 }, 1000);
             }
         }
