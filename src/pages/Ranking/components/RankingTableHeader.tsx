@@ -1,6 +1,5 @@
-import { FC } from 'react';
 import { constants } from '../../../constants/constants';
-export const RankingTableHeader: FC = () => {
+export const RankingTableHeader = () => {
     return (
         <div className="ranking__item">
             <span className="ranking__position--header">{constants.ranking.header.position}</span>

@@ -44,7 +44,7 @@ export const Modal: FC<Props> = ({timer, attempts}: Props) => {
                         />
                     </div>
                     <Link to="/">
-                        <Button text={constants.buttons.accept} className="button" handleClick={handleClick} />
+                        <Button text={constants.buttons.accept} type="main" handleClick={handleClick} />
                     </Link>
                 </div>
                 <Confetti />

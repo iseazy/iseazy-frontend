@@ -1,26 +1,26 @@
 .button {
-    background-color: var(--primary-color);
     font-size: 1.6rem;
     font-weight: bold;
     cursor: pointer;
     width: 15rem;
     height: 4.4rem;
-    color: #FFFFFF;
     border-radius: 35px;
 }
 
-.outline {
+.button.main {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+}
+
+.button.outline {
     background-color: transparent;
     border: 1px solid var(--primary-color);
-    font-size: 1.6rem;
-    font-weight: bold;
-    cursor: pointer;
-    width: 15rem;
-    height: 4.4rem;
     color: var(--primary-color);
-    border-radius: 35px;
 }
 
-.button:hover {
+.main:hover {
     background-color: var(--primary-color-hover);
+}
+.outline:hover {
+    color: var(--primary-color-hover);
 }

@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { RankingItem } from '../../interfaces/ranking.interface';
 import { useRanking } from '../../hooks/useRanking';
@@ -7,7 +6,7 @@ import { RankingTableHeader, RankintTableItem } from './components';
 import './ranking.css';
 import { constants } from '../../constants/constants';
 
-export const Ranking: FC = () => {
+export const Ranking = () => {
     const { rankingQuery } = useRanking();
     return (
         <div className="ranking animate__animated animate__fadeIn">
@@ -25,7 +24,7 @@ export const Ranking: FC = () => {
             </div>
             <div className="ranking__buttons">
                 <Link to="/">
-                    <Button text={constants.ranking.goBack} className="button"/>
+                    <Button text={constants.ranking.goBack} type="main"/>
                 </Link>
             </div>
         </div>

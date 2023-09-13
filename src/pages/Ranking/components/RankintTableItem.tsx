@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { RankingItem } from "../../../interfaces/ranking.interface";
 import { getTimeFormatted } from "../../MemoryBoard/helpers/getTimeFormatted";
 
@@ -7,7 +6,7 @@ interface Props {
     item: RankingItem;
 }
 
-export const RankintTableItem: FC<Props> = ({index, item}: Props) => {
+export const RankintTableItem = ({index, item}: Props) => {
     return (
         <div className={`ranking__item ${index===0 ? 'animate__animated animate__pulse animate__infinite' : ''}`}>
             <span className="ranking__position">{index+1}</span>

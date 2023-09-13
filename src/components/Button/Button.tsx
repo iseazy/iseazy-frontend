@@ -1,13 +1,12 @@
-import { FC } from 'react';
 import './button.css';
 
 interface ButtonProps {
     text: string;
-    className?: string;
+    type?: 'main' | 'outline';
     handleClick?: () => void;
 }
-export const Button: FC<ButtonProps> = ({text, className = 'button', handleClick}: ButtonProps) => {
+export const Button = ({text, type = 'main', handleClick}: ButtonProps) => {
     return (
-        <button className={className} onClick={handleClick}>{text}</button>
+        <button className={`button ${type}`} onClick={handleClick}>{text}</button>
     )
 }

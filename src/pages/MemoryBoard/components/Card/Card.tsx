@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Card as CardInterface } from "../../interfaces/card.interface";
 import { constants } from "../../../../constants/constants";
 
@@ -7,7 +6,7 @@ interface CardProps {
     index: number;
     handleClick: () => void;
 }
-export const Card: FC<CardProps> = ({card, handleClick, index}: CardProps) => {
+export const Card = ({card, handleClick, index}: CardProps) => {
     return (
         <div className="board__card" onClick={handleClick} role="button" data-testid={`button-${card.id}`}>
             <div className={`card ${card.flipped ? `is-flipped` : ``}`} data-testid={`card-${card.id}`}>
