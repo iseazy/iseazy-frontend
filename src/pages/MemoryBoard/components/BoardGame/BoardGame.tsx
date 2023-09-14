@@ -22,7 +22,7 @@ export const BoardGame = () => {
             setState(newState);
             if ( newState.selectedCards.length === 2 ) {
                 setTimeout(() => {
-                    setState(isMatched(newState));
+                    setState(isMatched());
                 }, 1000);
             }
         }

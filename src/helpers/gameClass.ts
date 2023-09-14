@@ -35,29 +35,33 @@ export class Game {
         return card1.cardPairID === card2.cardPairID
     }
 
-    public isMatched = (gameState: GameState ) => {
-        const isMatched = this.areCardsEqual( gameState.selectedCards[0], gameState.selectedCards[1] );
+    public isGameOver = () => {
+        return this.gameState.cards.every((c) => c.flipped);
+    }
+
+    public isMatched = () => {
+        const isMatched = this.areCardsEqual( this.gameState.selectedCards[0], this.gameState.selectedCards[1] );
         if ( isMatched ) {
             this.gameState = {
-                ...gameState,
-                isGameOver: gameState.cards.every((c) => c.flipped),
+                ...this.gameState,
+                isGameOver: this.isGameOver(),
                 selectedCards: [],
                 endTime: Date.now(),
-                totalAttempts: gameState.totalAttempts + 1,
+                totalAttempts: this.gameState.totalAttempts + 1,
             }
         } else {
-            const resetCards = gameState.cards.map((c) => {
-                if (c.id === gameState.selectedCards[1].id || c.id === gameState.selectedCards[0].id) {
+            const resetCards = this.gameState.cards.map((c) => {
+                if (c.id === this.gameState.selectedCards[1].id || c.id === this.gameState.selectedCards[0].id) {
                     return { ...c, flipped: false };
                 }
                 return c;
             });
     
             this.gameState = {
-                ...gameState,
+                ...this.gameState,
                 cards: resetCards,
                 selectedCards: [],
-                totalAttempts: gameState.totalAttempts + 1,
+                totalAttempts: this.gameState.totalAttempts + 1,
             }
         }
 
