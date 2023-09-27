@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ROUTE_DASHBOARD } from './routes/routes'
 import { ThemeProvider } from './contexts/ThemeContext'
+import { GameProvider } from './contexts/GameContext'
 
 import AppContainer from './containers/AppContainer';
 
@@ -12,36 +13,38 @@ const App = () => {
 
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <AppContainer>
-          <Routes>
-            <Route
-              index
-              element={
-                <Suspense fallback={<>Cargando...</>}>
-                  <Home />
-                </Suspense>
-              }
-            />
-            <Route
-              path={ROUTE_DASHBOARD}
-              element={
-                <Suspense fallback={<>Carganda...</>}>
-                  <Dashboard />
-                </Suspense>
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <Suspense fallback={<>...</>}>
-                  <Home />
-                </Suspense>
-              }
-            />
-          </Routes>
-        </AppContainer>
-      </BrowserRouter>
+      <GameProvider>
+        <BrowserRouter>
+          <AppContainer>
+            <Routes>
+              <Route
+                index
+                element={
+                  <Suspense fallback={<>Cargando...</>}>
+                    <Home />
+                  </Suspense>
+                }
+              />
+              <Route
+                path={ROUTE_DASHBOARD}
+                element={
+                  <Suspense fallback={<>Carganda...</>}>
+                    <Dashboard />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <Suspense fallback={<>...</>}>
+                    <Home />
+                  </Suspense>
+                }
+              />
+            </Routes>
+          </AppContainer>
+        </BrowserRouter>
+      </GameProvider>
     </ThemeProvider>
   )
 }
